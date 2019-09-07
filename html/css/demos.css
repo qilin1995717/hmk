@@ -1,4 +1,6 @@
 body, html {
+	max-width: 750px;
+	margin: 0 auto;
   height: 100%;
   -webkit-tap-highlight-color: transparent;
 }
@@ -41,4 +43,26 @@ footer {
 footer a {
   color: #999;
   text-decoration: none;
+}
+.swiper-pagination-bullet-active{
+	background: #0695FF !important;
+}
+.swiper-pagination-bullet{
+	background: #CCCCCC;
+	width:7px;
+	opacity: 1;
+	height:7px;
+}
+.weui-tabbar__icon{
+	width: 18px;
+	height: 18px;
+}
+.weui-tabbar__item{
+	padding-top: 10px;
+}
+.weui-tabbar {
+	height: 50px;
+}
+.weui-tabbar__item.weui-bar__item--on .weui-tabbar__label{
+	color: #1A1A1A;
 }
