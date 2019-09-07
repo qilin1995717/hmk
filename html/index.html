@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery WeUI</title>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+<link rel="stylesheet" href="../lib/weui.min.css">
+<link rel="stylesheet" href="../css/jquery-weui.css">
+<link rel="stylesheet" href="css/demos.css">
+
+  </head>
+
+  <body ontouchstart>
+
+    <div class="weui-tab">
+      <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+			<div class="swiper-container swiper-container-horizontal swiper-container-android">
+			      <!-- Additional required wrapper -->
+			      <div class="swiper-wrapper" style="transform: translate3d(-1200px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
+			        <!-- Slides -->
+			        <div class="swiper-slide" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div>
+			        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 400px;"><img src="./images/swiper-2.jpg"></div>
+			        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
+			      <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div></div>
+			      <!-- If we need pagination -->
+			      <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+			    </div>
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+          <h1>页面二</h1>
+        </div>
+        <div id="tab3" class="weui-tab__bd-item">
+          <h1>页面三</h1>
+        </div>
+        <div id="tab4" class="weui-tab__bd-item">
+          <h1>页面四</h1>
+        </div>
+      </div>
+
+      <div class="weui-tabbar">
+        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_button.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">微信</p>
+        </a>
+        <a href="#tab2" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_msg.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">通讯录</p>
+        </a>
+        <a href="#tab3" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_article.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">发现</p>
+        </a>
+        <a href="#tab4" class="weui-tabbar__item">
+          <div class="weui-tabbar__icon">
+            <img src="./images/icon_nav_cell.png" alt="">
+          </div>
+          <p class="weui-tabbar__label">我</p>
+        </a>
+      </div>
+    </div>
+
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/swiper.js"></script>
+<script type="text/javascript">
+	      $(".swiper-container").swiper({
+	        loop: true,
+	        autoplay: 3000
+	      });
+	    
+</script>
+  </body>
+</html>
