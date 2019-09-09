@@ -44,6 +44,13 @@ footer a {
   color: #999;
   text-decoration: none;
 }
+.x{
+	height: 15px;
+	background:rgba(245,245,245,1);
+}
+.boxp15{
+	padding: 15px;
+}
 .swiper-pagination-bullet-active{
 	background: #0695FF !important;
 }
@@ -108,7 +115,7 @@ footer a {
 	justify-content: space-between;
 }
 #tab1 .list .list4 .listcar{
-	width: 22%;
+	width: 23%;
 	margin-right: 10px;
 	text-align: center;
 }
@@ -128,4 +135,20 @@ footer a {
 }
 #tab1 .list .list4 .listcar:last-child{
 	margin-right: 0;
+}
+.bt{
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-right: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.bt span{
+	color: #666666;
+	font-size: 13px;
+}
+.bt .ico{
+	width: 11px;
+	height: 11px;
 }
