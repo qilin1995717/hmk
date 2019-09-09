@@ -203,3 +203,40 @@ footer a {
 .jq .jqboy .jqico h3 b{
 	font-size: 24px;
 }
+.seachjq{
+	position: inherit;
+	padding: 10px 0;
+}
+.seachjq input{
+	width: 100%;
+	background: #FFFFFF;
+	padding-left: 14%;
+}
+.seachjq .s{
+	margin-left: 4%;
+}
+.tap{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+}
+.tap h2{
+	font-size: 14px;
+	color: #FFFFFF;
+	width: 50%;
+	text-align: center;
+	position: relative;
+}
+.tap h2:after{
+	content: "";
+	display: block;
+	width: 0;
+	position: absolute;
+	top: 9px;
+	right:45px;
+	height: 0;
+	border-width: 0 5px 5px;
+	border-style: solid;
+	border-color: transparent transparent #FFFFFF;
+}
