@@ -1,93 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>潮带劲</title>
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
 
-<link rel="stylesheet" href="../lib/weui.min.css">
-<link rel="stylesheet" href="../css/jquery-weui.css">
-<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
 
-  </head>
+	</head>
 
-  <body ontouchstart>
-
-    <div class="weui-tab">
-      <div class="weui-tab__bd">
-        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
-			<div class="swiper-container swiper-container-horizontal swiper-container-android" style="height: 175px;">
-			      <!-- Additional required wrapper -->
-			      <div class="swiper-wrapper" style="transform: translate3d(-1200px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
-			        <!-- Slides -->
-			        <div class="swiper-slide" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div>
-			        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 400px;"><img src="./images/swiper-2.jpg"></div>
-			        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
-			      <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div></div>
-			      <!-- If we need pagination -->
-			      <div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+	<body ontouchstart>
+		<div class="weui-tab">
+			<div class="weui-tab__bd">
+				<div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+					<div class="swiper-container swiper-container-horizontal swiper-container-android" style="height: 175px;">
+						
+						<div class="seach">
+							<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;">
+							<img class="s" src="images/icon_1@2x.png" >
+							<input type="text" placeholder="搜索目的地/景点" />
+							<img class="m" src="images/icon_2@2x.png" >
+							</div>
+						</div>
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper" style="transform: translate3d(-1200px, 0px, 0px); transition-duration: 0ms;">
+							<div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
+							<!-- Slides -->
+							<div class="swiper-slide" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div>
+							<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 400px;"><img src="./images/swiper-2.jpg"></div>
+							<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
+							<div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 400px;"><img
+								 src="./images/swiper-1.jpg"></div>
+						</div>
+						<!-- If we need pagination -->
+						<div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span
+							 class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+					</div>
+					<div class="list">
+						<div class="list4">
+							<div class="listcar" style="background: url(images/bg_1@2x.png) no-repeat; background-size: cover;">
+								<img src="images/bg_01@2x.png" >
+								<h2>实体卡激活</h2>
+								<p>填写激活码</p>
+							</div>
+							<div class="listcar" style="background: url(images/bg_2@2x.png) no-repeat; background-size: cover;">
+								<img src="images/bg_02@2x.png" >
+								<h2>出游预约</h2>
+								<p>选择出游日期</p>
+							</div>
+							<div class="listcar" style="background: url(images/bg_3@2x.png) no-repeat; background-size: cover;">
+								<img src="images/bg_03@2x.png" >
+								<h2>会员景区</h2>
+								<p>会员免预约</p>
+							</div>
+							<div class="listcar" style="background: url(images/bg_4@2x.png) no-repeat; background-size: cover;">
+								<img src="images/bg_04@2x.png" >
+								<h2>联系我们</h2>
+								<p>全天服务</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div id="tab2" class="weui-tab__bd-item">
+				</div>
+				<div id="tab3" class="weui-tab__bd-item">
+					<h1>页面三</h1>
+				</div>
+				<div id="tab4" class="weui-tab__bd-item">
+					<h1>页面四</h1>
+				</div>
 			</div>
-			asd132
-        </div>
-        <div id="tab2" class="weui-tab__bd-item">
-          <h1>页面二</h1>
-        </div>
-        <div id="tab3" class="weui-tab__bd-item">
-          <h1>页面三</h1>
-        </div>
-        <div id="tab4" class="weui-tab__bd-item">
-          <h1>页面四</h1>
-        </div>
-      </div>
 
-      <div class="weui-tabbar">
-        <a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
-          <div class="weui-tabbar__icon">
-            <img src="./images/menu_1@2x.png" alt="">
-          </div>
-          <p class="weui-tabbar__label">首页</p>
-        </a>
-        <a href="#tab2" class="weui-tabbar__item">
-          <div class="weui-tabbar__icon">
-            <img src="./images/menu_2@2x.png" alt="">
-          </div>
-          <p class="weui-tabbar__label">景区预约</p>
-        </a>
-        <a href="#tab3" class="weui-tabbar__item">
-          <div class="weui-tabbar__icon">
-            <img src="./images/menu_3@2x.png" alt="">
-          </div>
-          <p class="weui-tabbar__label">年卡购买</p>
-        </a>
-        <a href="#tab4" class="weui-tabbar__item">
-          <div class="weui-tabbar__icon">
-            <img src="./images/menu_4@2x.png" alt="">
-          </div>
-          <p class="weui-tabbar__label">个人中心</p>
-        </a>
-      </div>
-    </div>
+			<div class="weui-tabbar">
+				<a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_01@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">首页</p>
+				</a>
+				<a href="#tab2" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_2@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">景区预约</p>
+				</a>
+				<a href="#tab3" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_3@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">年卡购买</p>
+				</a>
+				<a href="#tab4" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_4@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">个人中心</p>
+				</a>
+			</div>
+		</div>
 
-<script src="../lib/jquery-2.1.4.js"></script>
-<script src="../lib/fastclick.js"></script>
-<script>
-  $(function() {
-    FastClick.attach(document.body);
-  });
-</script>
-<script src="../js/jquery-weui.js"></script>
-<script src="../js/swiper.js"></script>
-<script src="../js/config.js"></script>
-<script type="text/javascript">
-	      $(".swiper-container").swiper({
-	        loop: true,
-	        autoplay: 3000
-	      });
-	    
-</script>
-  </body>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/swiper.js"></script>
+		<script src="../js/config.js"></script>
+		<script type="text/javascript">
+			$(".swiper-container").swiper({
+				loop: true,
+				autoplay: 2000
+			});
+		</script>
+	</body>
 </html>
