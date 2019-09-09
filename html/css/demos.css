@@ -156,7 +156,7 @@ footer a {
 .jq{
 	display: flex;
 	justify-content: space-between;
-	height:90px;
+	height:99px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid #E6E6E6;
 	overflow: hidden;
@@ -182,7 +182,7 @@ footer a {
 .jq .jqboy h2{
 	font-size: 16px;
 	margin-bottom: 10px;
-	line-height: 1;
+	line-height: 1.1;
 }
 .jq .jqboy p{
 	font-size: 11px;
