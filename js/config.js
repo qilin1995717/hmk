@@ -31,6 +31,10 @@ $("#jqyy").click(function(){
 $("#me").click(function(){
 	$(".weui-tabbar a:eq(3)").trigger('click');
 })
+$("#nk").click(function(){
+	$(".weui-tabbar a:eq(2)").trigger('click');
+})
+
 //tabbar
 $(".tap h2").click(function(){
 	a = $(this).index();

@@ -328,3 +328,69 @@ footer a {
 	font-size: 12px;
 	color:rgba(147,147,147,1);
 }
+.zl{
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding-top: 25px;
+	margin-left: 26px;
+}
+.zl img{
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+}
+.zl .name {
+	margin-left: 15px;
+}
+.zl .name h2{
+	font-size: 18px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+}
+.zl .name p{
+	font-size: 10px;
+	color:rgba(255,255,255,1);
+	margin-top: 9px;
+}
+.zl .name p span{
+	padding: 3px 7px;
+	background:rgba(6,149,255,1);
+	border-radius: 9px;
+	margin-right: 10px;
+}
+.zl button{
+	width: 75px;
+	height: 29px;
+	background:linear-gradient(90deg,rgba(251,81,98,1) 0%,rgba(254,113,102,1) 100%);
+	border-radius:29px 0px 0px 29px;
+	position: absolute; top: 25px;right: 0;
+	border: none;
+	outline: none;
+	color: #FFFFFF;
+}
+.user .usercard{
+	background:rgba(255,255,255,1);
+	border-radius:10px;
+	margin-top: 15px;
+	padding: 20px 16px;
+}
+.user .usercard h2{
+	font-weight:bold;
+	color:rgba(179,179,179,1);
+	font-size: 15px;
+}
+.user .usercard ul{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.user .usercard ul li{
+	text-align: center;
+	width: 25%;
+}
+.user .usercard ul li img{
+	width: 25px;
+	height: 25px;
+}
