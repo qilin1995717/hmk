@@ -16,7 +16,7 @@
 	</head>
 
 	<body ontouchstart>
-		<div class="weui-tab">
+		<div class="weui-tab" style="overflow: hidden;">
 			<div class="weui-tab__bd">
 				<div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
 					<div class="swiper-container swiper-container-horizontal swiper-container-android" style="height: 175px;">
@@ -25,7 +25,7 @@
 							<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;">
 								<img class="s" src="images/icon_1@2x.png">
 								<input type="search" placeholder="搜索目的地/景点" />
-								<img class="m" src="images/icon_2@2x.png">
+								<img id="me" class="m" src="images/icon_2@2x.png">
 							</div>
 						</div>
 						<!-- Additional required wrapper -->
@@ -69,7 +69,7 @@
 							<img src="images/img_1@2x.png" style="width: 100%;margin-top: 12px;">
 						</div>
 					</div>
-					<div class="x"></div>
+<!-- 					<div class="x"></div>
 					<div class="hot">
 						<div class="bt">
 							<div style="width: 160px;height: 25px;background:linear-gradient(90deg,rgba(255,63,70,1),rgba(253,95,139,1));
@@ -92,18 +92,16 @@ border-radius:0px 0px 15px 0px;text-align: center;">
 								<img src="images/qinzi.png" style="width: 32%;height: 85px;">
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="x"></div>
 					<div class="hot">
 						<div class="bt">
 							<div style="width: 120px;height: 25px;text-align: center;font-size: 16px;color: #333333;font-weight: bold;border-left: 5px solid rgba(37,109,255,1);">
 								会员特权景区
 							</div>
-							<div>
-								<a href="">
+							<div id="jqyy">
 									<span>全部</span>
 									<img src="images/icon_4.png" class="ico" style="width: 7px;">
-								</a>
 							</div>
 						</div>
 						<div class="boxp15" style="padding-top: 0;">
@@ -249,10 +247,56 @@ border-radius:0px 0px 15px 0px;text-align: center;">
 							</div>
 						</div>
 					</div>
+					<div id="city" class="tc" style="display: none;">
+						<div class="tcnr">
+							
+						</div>
+					</div>
+					<div id="mouth" class="tc" style="display: none;">
+						<div class="tcnr">
+							
+						</div>
+					</div>
 					<div style="height: 50px;"></div>
 				</div>
 				<div id="tab3" class="weui-tab__bd-item">
-					<h1>页面三</h1>
+					<div class="boxp15">
+						<a href="" >
+							<img src="images/ka.png" style="width: 100%;">
+						</a>
+						<div class="yearcard">
+							<div class="top">
+								<img src="images/cdj.png" >
+								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
+							</div>
+							<div class="bot">
+								<div class="botr">
+									<p><span>￥99 /1年</span>原价:￥990</p>
+									<p>结束时间：2019-12-31</p>
+								</div>
+								<button type="button">
+									立即购买
+								</button>
+							</div>
+						</div>
+						<div class="yearcard">
+							<div class="top">
+								<img src="images/cdj.png" >
+								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
+							</div>
+							<div class="bot">
+								<div class="botr">
+									<p><span>￥99 /1年</span>原价:￥990</p>
+									<p>结束时间：2019-12-31</p>
+								</div>
+								<button type="button">
+									立即购买
+								</button>
+							</div>
+						</div>
+					</div>
+					
+					
 					<div style="height: 50px;"></div>
 				</div>
 				<div id="tab4" class="weui-tab__bd-item">

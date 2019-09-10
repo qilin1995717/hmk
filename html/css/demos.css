@@ -240,3 +240,89 @@ footer a {
 	border-style: solid;
 	border-color: transparent transparent #FFFFFF;
 }
+.tap .active:after{
+	transform: rotate(180deg);
+}
+.tc{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.1);
+	position: absolute;
+	top: 100px;
+	left: 0;
+}
+.tc .tcnr{
+	overflow: hidden;
+	background: #FFFFFF;
+	position: absolute;
+	top:0px;
+	z-index: 999;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.tc .tcnr span{
+	font-size: 12px;
+	color: #1A1A1A;
+	width: 22%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	background: #E6E6E6;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.tc .tcnr .active{
+	background:rgba(37,109,255,0.1);
+	border:1px solid rgba(37,109,255,1);
+}
+.yearcard{
+	width: 100%;
+	margin-top: 20px;
+	background:rgba(242,242,242,1);
+	border-radius:5px;
+}
+.yearcard .top{
+	padding: 15px 0;
+	text-align: center;
+	border-bottom: 2px solid rgba(230,230,230,1);
+}
+.yearcard .top img{
+	width: 26%;
+	margin-bottom: 5px;
+}
+.yearcard .top h2{
+	font-size: 16px;
+	font-weight:400;
+	color:rgba(64,64,64,1);
+}
+.yearcard .bot{
+	padding: 12px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.yearcard .bot button{
+	padding: 7px 16px;
+	font-size: 12px;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	border-radius: 5px;
+	background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);
+	outline: none;
+	border: none;
+}
+.yearcard .bot .botr p span{
+	font-size: 18px;
+	color: #EC1720;
+	padding-right: 10px;
+}
+.yearcard .bot .botr p:last-child{
+	font-size: 14px;
+}
+.yearcard .bot .botr p{
+	font-size: 12px;
+	color:rgba(147,147,147,1);
+}
