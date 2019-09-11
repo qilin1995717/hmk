@@ -188,7 +188,7 @@ footer a {
 	font-size: 11px;
 	color:rgba(128,128,128,1);
 }
-.jq .jqboy .jqico span{
+.jqico span{
 	padding: 4px;
 	background:rgba(42,103,255,.1);
 	margin-right: 10px;
@@ -376,13 +376,13 @@ footer a {
 	padding: 20px 16px;
 }
 .user .usercard h2{
-	font-weight:bold;
-	color:rgba(179,179,179,1);
+	color:#B3B3B3;
 	font-size: 15px;
 }
 .user .usercard ul{
 	display: flex;
 	align-items: center;
+	list-style: none;
 	justify-content: space-between;
 	margin-top: 20px;
 }
@@ -393,4 +393,110 @@ footer a {
 .user .usercard ul li img{
 	width: 25px;
 	height: 25px;
+}
+.user .usercard ul li h2{
+	color: #1A1A1A;
+}
+.user .userlist ul {
+	margin-top: 15px;
+	list-style: none;
+	border-radius: 5px;
+}
+.user .userlist ul li {
+	background: #FFFFFF;
+	overflow: hidden;
+}
+.user .userlist ul li a{
+	margin:0 20px;
+	padding:15px 0 ;
+	display: flex;
+	font-size: 14px;color: #1A1A1A;
+	align-items: center;
+	border-bottom: 1px solid #E5E5E5;
+	background: url(../images/rightj.png)no-repeat right;
+	background-size: 7px 11px;
+}
+.user .userlist ul li a img {
+	width: 19px;
+	height: 19px;
+	padding-right: 9px;
+}
+.user .userlist ul li:last-child a{
+	border: none;
+}
+.weui-cell:before{
+	left: 5%;
+	    width: 90%;
+}
+#ll{
+	font-size: 11px;
+	color: #999999;
+	position: relative;
+	right: -50%;
+}
+#ll img{
+	width: 14px;
+	margin-right: 3px;
+}
+.tbsm{
+	padding: 20px 0;
+}
+.pagebt{
+	font-size: 16px;
+	color: #000000;
+	padding-left: 15px;
+	position: relative;
+}
+.pagebt:after{
+	content: "";
+	width:5px;
+	height:25px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background:rgba(37,109,255,1);
+}
+.tbsm ul{
+	list-style: none;
+	padding: 0 25px;
+}
+.tbsm ul li {
+	margin-top: 15px;
+	display: flex;
+	justify-content: space-between;
+}
+.tbsm ul li .ic{
+	width:55px;
+	height:15px;
+	text-align: center;
+	border:1px solid rgba(255,95,0,1);
+	border-radius:2px;
+	line-height: 15px;
+	color:rgba(255,95,39,1);
+	font-size: 10px;
+}
+.tbsm ul li .nr{
+	width: 75%;
+	color: #1A1A1A;
+	font-size: 10px;
+}
+.yysm .yy{
+	width: 60px;
+	font-size: 10px;
+	color: #808080;
+}
+.yysm .nr .red{
+	color: #EC1720;
+}
+.wxts p{
+	font-size: 13px;
+	color: #1A1A1A;
+}
+.jqjs img{
+	width: 100%;
+	margin-top: 15px;
+}
+.jqjs p{
+	color: #59636F;
+	font-size: 13px;
 }
