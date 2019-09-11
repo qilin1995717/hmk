@@ -316,14 +316,17 @@ footer a {
 	outline: none;
 	border: none;
 }
+.jqico p span,
 .yearcard .bot .botr p span{
 	font-size: 18px;
 	color: #EC1720;
+	background: none;
 	padding-right: 10px;
 }
 .yearcard .bot .botr p:last-child{
 	font-size: 14px;
 }
+.jqico p,
 .yearcard .bot .botr p{
 	font-size: 12px;
 	color:rgba(147,147,147,1);
@@ -431,8 +434,6 @@ footer a {
 #ll{
 	font-size: 11px;
 	color: #999999;
-	position: relative;
-	right: -50%;
 }
 #ll img{
 	width: 14px;

@@ -36,7 +36,7 @@ $("#nk").click(function(){
 })
 
 
-//页面传值
+//页面取值
 $(function(){
 var url=window.location.search;
 var str = url.substr(1);
@@ -54,6 +54,28 @@ var str = url.substr(1);
   }
 })
 
+//景区
+$(".jq").click(function(){
+ var jq =  {
+   "id":"1",
+   // "age":62,
+   // "cars": [
+	  // { "name":"Porsche",  "models":[ "911", "Taycan" ] },
+	  // { "name":"BMW", "models":[ "M5", "M3", "X5" ] },
+	  // { "name":"Volvo", "models":[ "XC60", "V60" ] }
+   // ]
+}
+	
+	window.location.href="page.html?valus="+ JSON.stringify(jq);
+})
+
+$(".yearcard").click(function(){
+ var jq =  {
+   "id":"1",
+}
+	
+	window.location.href="nkxq.html?valus="+ JSON.stringify(jq);
+})
 
 //tabbar
 $(".tap h2").click(function(){
@@ -99,3 +121,5 @@ $(".tc").on("click",function(){
 		$(".tc").css("display","none");
 		$(".tap h2").removeClass("active");
 })
+
+
