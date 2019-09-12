@@ -548,3 +548,18 @@ footer a {
 	right: 10px;
 	top: 18px;
 }
+.wxts ul li{
+	color: #EF5056;
+	font-size: 13px;
+}
+.syxz ul li{
+	color: #1A1A1A;
+	font-size: 11px;
+}
+.weui-count .weui-count__increase {
+	background-color: #2A67FF;
+	border:1px solid #2A67FF;
+}
+.weui-count .weui-count__btn{
+	border:1px solid #2A67FF;
+}
