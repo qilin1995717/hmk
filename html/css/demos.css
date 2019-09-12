@@ -501,3 +501,37 @@ footer a {
 	color: #59636F;
 	font-size: 13px;
 }
+.login {
+	padding: 40px 25px 75px 25px;
+	background: #FFFFFF;
+}
+.login input{
+	width: 90%;
+	padding: 18px 15px;
+	border-radius: 5px;
+	background: #F0F0F0;
+	font-size: 14px;
+	color: #666666;
+	outline: none;
+	border: none;
+	margin-bottom: 15px;
+}
+.login button{
+	border: none;
+	width: 100%;
+	outline: none;
+	padding: 18px 15px;
+	border-radius: 5px;
+	background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);
+	font-size: 18px;
+	color: #FFFFFF;
+	margin-top: 25px;
+	letter-spacing: 6px;
+}
+.login .go{
+	font-size: 13px;
+	color: #0695FF;
+	position: absolute;
+	right: 10px;
+	top: 18px;
+}
