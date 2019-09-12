@@ -1,21 +1,16 @@
-$(function(){
-	var getRequest = this.getRequest();
-	 if (getRequest.code) {
-	   this.code = getRequest.code;
-	 } else {
-	   var pageUrl = window.location.href
-	   .replace(/[/]/g, "%2f")
-	   .replace(/[:]/g, "%3a")
-	   .replace(/[#]/g, "%23")
-	   .replace(/[&]/g, "%26")
-	   .replace(/[=]/g, "%3d");
-	 var url =
-	 "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +
-	 "填写网页授权回调域名所对应的那个公众号的AppId" +
-	 "&redirect_uri=" +
-	 pageUrl + //这里放当前页面的地址
-	 "&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect";
-	 window.location.href = url;
-	}
-	 console.log("CODE：" + getRequest.code);
-})
+var code = sessionStorage.getItem('code');
+if(code === null){
+	var redirect_urls= location.href;
+	var urls =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee11a1999c96735&redirect_uri="+ redirect_urls +"&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+	window.location.href = urls;
+}else{
+	console.log(code);
+	
+}
+	var code = getQueryString("code");
+	sessionStorage.setItem('code', code);
+function getQueryString(name){  
+     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+     var r = window.location.search.substr(1).match(reg);  
+     if (r != null) return unescape(r[2]); return null;              
+} 

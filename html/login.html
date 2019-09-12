@@ -12,18 +12,6 @@
 		<link rel="stylesheet" href="../lib/weui.min.css">
 		<link rel="stylesheet" href="../css/jquery-weui.css">
 		<link rel="stylesheet" href="css/demos.css">
-
-
-		<style>
-			.swiper-container {
-				width: 100%;
-			}
-
-			.swiper-container img {
-				display: block;
-				width: 100%;
-			}
-		</style>
 	</head>
 
 	<body ontouchstart style="background: #2F78FF;padding: 0 15px;">
@@ -36,7 +24,7 @@
 					获取验证码
 				</span>
 			</div>
-			<button type="button" id="login">登录</button>
+			<button type="button" id="login">登录</button> <!-- <button type="button" id="code">123546</button> -->
 		</div>
 
 		<script src="../lib/jquery-2.1.4.js"></script>
@@ -46,15 +34,8 @@
 				FastClick.attach(document.body);
 			});
 		</script>
+		<script src="../js/weixin.js"></script>
 		<script src="../js/jquery-weui.js"></script>
-
-		<script src="../js/swiper.js"></script>
 		<script src="../js/login.js"></script>
-		<script>
-			$(".swiper-container").swiper({
-				loop: true,
-				autoplay: 3000
-			});
-		</script>
 	</body>
 </html>
