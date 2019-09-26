@@ -18,7 +18,6 @@
 			.swiper-container {
 				width: 100%;
 			}
-
 			.swiper-container img {
 				display: block;
 				width: 100%;
@@ -32,7 +31,7 @@
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				<div class="swiper-slide"><img src="images/cdj.png" /></div>
+				<div class="swiper-slide"><img id="goods_img" src="images/cdj.png" /></div>
 				<!-- <div class="swiper-slide"><img src="./images/swiper-2.jpg" /></div>
 				<div class="swiper-slide"><img src="./images/swiper-3.jpg" /></div> -->
 			</div>
@@ -43,9 +42,9 @@
 		<div class="page">
 			<a class="weui-cell weui-cell_access" href="javascript:;">
 				<div class="weui-cell__bd">
-					<h2 style="font-size: 19px;color: #1A1A1A;margin-bottom: 10px;">潮带劲旅游卡：全家一起潮出游！</h2>
+					<h2 id="goods_name" style="font-size: 19px;color: #1A1A1A;margin-bottom: 10px;">潮带劲旅游卡：全家一起潮出游！</h2>
 					<div class="jqico" style="display: flex;align-items: center;padding-bottom: 10px;justify-content: space-between;">
-						<p><span>￥99 /1年</span>原价:￥990</p>
+						<p><span id="goods_price">￥99 /1年</span><p id="goods_old_price">原价:￥990</p></p>
 						<div id="ll">
 							销售:15566
 						</div>
@@ -53,128 +52,116 @@
 				</div>
 			</a>
 		</div>
-		<div style="height: 50px;overflow: hidden;display: flex;align-items: center;background:rgba(6,149,255,.1);padding: 0 15px;font-size: 13px;color: #333333;margin-right: 20px;">
-			<img src="images/ba4ba5519ae3f2769c825a8c49a83e2.png" style="width: 20%;">
-			2020年12月30日
+		<div style="height: 50px;display: flex;align-items: center;background:rgba(6,149,255,.1);padding: 0 15px;font-size: 13px;color: #333333;">
+			<img src="images/ba4ba5519ae3f2769c825a8c49a83e2.png" style="width: 20%;margin-right: 40px;">
+			<span id="goods_end_time">2020年12月30日</span>
 		</div>
 
 		<div class="x"></div>
-		<div class="tbsm">
-			<h2 class="pagebt">特别说明</h2>
-			<ul>
+		<div class="tbsm wxts">
+			<h2 class="pagebt">温馨提示</h2>
+			<ul id="goods_prompt">
 				<li>
-					<span class="ic">
-						另外费用
-					</span>
-					<span class="nr">
-
-						5元/人服务费+2元/保险费需会员自理，溶洞景区洞内地势起伏较多；
-
-					</span>
+					1、每个手机微信最多可以绑定5张卡；
 				</li>
 				<li>
-					<span class="ic">
-						联系电话
-					</span>
-					<span class="nr">
-						客服电话：0371-69225888；
-
-					</span>
+					2、此商品特价，一经购买，不可退换；
 				</li>
 				<li>
-					<span class="ic">
-						注意事项
-					</span>
-					<span class="nr">
-
-						请注意：此景区不接待团队预约；
-
-					</span>
+					3、请在使用之前完成本人信息的注册激活；
+				</li>
+			</ul>
+		</div>
+		<div class="tbsm syxz">
+			<h2 class="pagebt">使用须知</h2>
+			<ul id="goods_instructions">
+				<li>
+					1、微信扫描二维码--关注--注册激活；
+				</li>
+				<li>
+				2、此卡注册激活后立即生效，须至少出游前一天预约；
+				</li>
+				<li>
+				2、此卡注册激活后立即生效，须至少出游前一天预约；
 				</li>
 			</ul>
 		</div>
 		<div class="x"></div>
 		<div class="yysm tbsm">
 			<h2 class="pagebt">
-				预约说明
+				特别说明
 			</h2>
-			<ul>
+			<ul id="goods_desc">
 				<li>
 					<span class="yy">
 						门票价格：
 					</span>
 					<span class="nr">
-						<p>景区大门票：旺季150元/人，淡季120元/人。</p>
+						<p>潮带劲（河南）网络科技有限公司</p>
 					</span>
 				</li>
 				<li>
 					<span class="yy">
-						活动日期：
+						门票价格：
 					</span>
 					<span class="nr">
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p>
-							年卡会员可在活动日期免费游览该景区，入园
-							前1~7天在本页面预约。
-						</p>
+						<p>潮带劲（河南）网络科技有限公司</p>
 					</span>
 				</li>
 				<li>
 					<span class="yy">
-						开放时间：
+						门票价格：
 					</span>
 					<span class="nr">
-						<p>123654</p>
-						<p>456789</p>
-						<p>周一闭馆</p>
+						<p>潮带劲（河南）网络科技有限公司</p>
 					</span>
 				</li>
 			</ul>
-		</div>
-		<div class="wxts tbsm">
-			<h2 class="pagebt">
-				温馨提示
-			</h2>
-			<div class="boxp15">
-				
-			
-			<p>
-				①预约时需提供本人身份证号做为入园凭证，入园时请携带身份证件。
-			</p>
-			<p>
-				②门票仅限预约出游当日有效，其他时间无效，出园后再入园，需另购票。
-			</p>
-			<p>
-				③预约成功后不出游须提前取消预约，如不取消达3次，则关停预约权。
-			</p>
-			<p>
-				④由于政治经济活动，天气变化或其它不可抗力因素造成景区无法预约游览的，不视为主办方违约。 
-			</p>
-			</div>
 		</div>
 		<div class="jqjs tbsm">
 			<h2 class="pagebt">
 				景区介绍
 			</h2>
-			<div class="boxp15">
-				<img src="images/jq.png" >
-				<p>
-					少林寺位于河南省郑州市登封市嵩山五乳峰下，因坐落于嵩山腹地少室山茂密丛林之中，故名“少林寺”。始建于北魏太和十九年（495年），是孝文帝为了安置他所敬仰的印度高僧跋陀尊者，在与都城洛阳相望的嵩山少室山北麓敕建而成。少林寺常住院占地面积约57600平方米，现任方丈是曹洞正宗第47世、第33代嗣祖沙门释永信。 [1] 
-				</p>
-				<p>
-					少林寺是世界著名的佛教寺院，是汉传佛教的禅宗祖庭，在中国佛教史上占有重要地位，被誉为“天下第一名刹”。因其历代少林武僧潜心研创和不断发展的少林功夫而名扬天下，素有“天下功夫出少林，少林功夫甲天下”之说。
-				</p>
-				<img src="images/pagejqsl.png" >
+			<div class="boxp15" id="goods_details">
+				
 			</div>
 		</div>
 		<div style="height: 20px;"></div>
-		<div>
-			<a href="javascript:;" id="next" class="weui-btn weui-btn_primary" style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);border-radius: 0;
-			position: fixed;bottom: 0;display: block;width: 100%;max-width: 750px;">立即预约</a>
+		<div style="position: fixed;bottom: 0;display: flex;justify-content: space-between;align-items: center;width: 100%;background: #FFFFFF;max-width: 750px;">
+			<div class="money" style="width: 50%;text-align: center;font-size: 12px;">
+				总计：<span style="color: #EC1720;"><b style="font-size: 21px;">99</b>/1份</span>
+			</div>
+			<a href="javascript:;" data-target="#half" class="weui-btn weui-btn_primary open-popup" style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);border-radius: 0;width: 50%;display: block;">确定</a>
 		</div>
 		
+		 
+		
+		<div id="half" class='weui-popup__container popup-bottom'>
+		  <div class="weui-popup__overlay"></div>
+		  <div class="weui-popup__modal" style="background: #FFFFFF;">
+		    <div class="toolbar">
+		    </div>
+		    <div class="modal-content" style="padding-top: 1rem;">
+		      <div class="">
+				
+				<div class="weui-cell" style="margin-bottom: 15px;">
+				  <div class="weui-cell__bd">
+				    <p style="color: #1A1A1A;text-align: center;">购买数量</p>
+				  </div>
+				  <div class="weui-cell__ft">
+				    <div class="weui-count">
+				      <a class="weui-count__btn weui-count__decrease"></a>
+				      <input class="weui-count__number" type="number" value="1" />
+				      <a class="weui-count__btn weui-count__increase"></a>
+				    </div>
+				  </div>
+				</div>
+				<a href="javascript:;" id="gm" class="weui-btn weui-btn_primary" style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);border-radius: 0;
+							display: block;width: 100%;max-width: 750px;">确定购买</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 		<script src="../lib/jquery-2.1.4.js"></script>
 		<script src="../lib/fastclick.js"></script>
 		<script>
@@ -183,14 +170,146 @@
 			});
 		</script>
 		<script src="../js/jquery-weui.js"></script>
-
-		<script src="../js/swiper.js"></script>
-		<script src="../js/page.js"></script>
-<!-- 		<script>
-			$(".swiper-container").swiper({
-				loop: true,
-				autoplay: 3000
+		<script>
+			$(document).on("open", ".weui-popup-modal", function() {
+			  console.log("open popup");
+			}).on("close", ".weui-popup-modal", function() {
+			  console.log("close popup");
 			});
-		</script> -->
+			
+			var MAX = 99, MIN = 1;
+			$('.weui-count__decrease').click(function (e) {
+			  var $input = $(e.currentTarget).parent().find('.weui-count__number');
+			  var number = parseInt($input.val() || "0") - 1
+			  if (number < MIN) number = MIN;
+			  $input.val(number)
+			})
+			$('.weui-count__increase').click(function (e) {
+			  var $input = $(e.currentTarget).parent().find('.weui-count__number');
+			  var number = parseInt($input.val() || "0") + 1
+			  if (number > MAX) number = MAX;
+			  $input.val(number)
+			})
+			
+			$('.delete-swipeout').click(function () {
+			  $(this).parents('.weui-cell').remove()
+			})
+			$('.close-swipeout').click(function () {
+			  $(this).parents('.weui-cell').swipeout('close')
+			})
+			
+
+var token = sessionStorage.getItem('token');
+			
+var sn = getQueryString("sn");
+
+console.log(sn);
+
+
+function getQueryString(name){  
+     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+     var r = window.location.search.substr(1).match(reg);  
+     if (r != null) return unescape(r[2]); return null;              
+} 
+$.ajax({
+	url:'http://user.yangergou.com/api/card/cardListInfo',
+	type:'post',
+	dataType:'json',
+	data:{
+		goods_sn:sn,
+	},
+	success:function(res){
+		console.log(res);
+		var data = res.data.list;
+		$('#goods_name').text(data.goods_name);
+		$('#goods_img').attr("src",data.goods_img);
+		$("#goods_price").text("￥"+data.goods_price+"/1年");
+		$("#goods_old_price").text("原价"+data.goods_old_price);
+		$("#goods_end_time").text(data.goods_end_time);
+		$("#goods_desc").html(data.goods_desc);
+		$("#goods_instructions").html(data.goods_instructions);
+		$("#goods_prompt").html(data.goods_prompt);
+		$("#goods_details").html(data.goods_details);
+		
+	}
+})
+$("#gm").click(function(){
+	var sl = $('.weui-count__number').val();
+	$.ajax({
+		url:"http://user.yangergou.com/api/Wxpay/index",
+		type:"post",
+		async:false,
+		dataType:"json",
+		data:{
+			token:token,
+			goods_sn:sn,
+			pay_type:1,
+			goods_num:sl,
+		},
+		success:function(res){
+			console.log(sl);
+			console.log(res.data.list);
+			$.ajax({
+				url:"http://user.yangergou.com/api/Wxpay/wxpay",
+				type:"post",
+				dataType:"json",
+				data:{
+					token:token,
+					order_sn:res.data.list,
+				},
+				success:function(data){
+					var data = data.data.list;
+					var data = JSON.parse(data);
+					console.log(data);
+					console.log(data.package);
+					function onBridgeReady(){
+					   WeixinJSBridge.invoke(
+					      'getBrandWCPayRequest', {
+					         "appId":data.appId,     //公众号名称，由商户传入     
+					         "timeStamp":data.timeStamp,         //时间戳，自1970年以来的秒数     
+					         "nonceStr":data.nonceStr, //随机串     
+					         "package":data.package,     
+					         "signType":"MD5",         //微信签名方式：     
+					         "paySign":data.paySign //微信签名 
+					      },
+					      function(res){
+					      if(res.err_msg == "get_brand_wcpay_request:ok" ){
+					      // 使用以上方式判断前端返回,微信团队郑重提示：
+						  $.alert("支付成功",function(){
+							  window.location.href = 'nklist.html'
+						  });
+						  
+					            //res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+					      }else{
+							  $.alert("失败");
+						  }
+					   }); 
+					}
+					if (typeof WeixinJSBridge == "undefined"){
+					   if( document.addEventListener ){
+					       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+					   }else if (document.attachEvent){
+					       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+					       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+					   }
+					}else{
+					   	onBridgeReady();
+					}
+					
+				}
+			})
+		},
+		
+	})
+})
+		
+		
+		
+		
+		
+		
+
+
+		</script>
 	</body>
 </html>

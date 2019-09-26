@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" href="css/jh.css">
+		<style type="text/css">
+			 .weui-cells:before{
+				 display: none;
+			 }
+			 .weui-cells:after{
+				 display: none;
+			 }
+			.weui-cells_checkbox .weui-check:checked+.weui-icon-checked:before{
+				 color: #0695FF;
+			 }
+			 .weui_uploader_files{
+				 list-style: none;
+			 }
+			 .weui_uploader_files li{
+				 width: 90px;
+				 height: 90px;
+				 margin: 0 auto;
+				 background-size: cover;
+			 }
+			 .weui_uploader_files li img{
+				 width: 100%;
+				 height: 100%;
+				 border-radius: 50%;
+			 }
+			 .weui_uploader_input{
+				 width: 90px;
+				 height: 90px;
+				 line-height: 90px;
+				 text-align: center;
+				 outline: none;
+				 border: none;
+				 background:rgba(240,240,240,1);
+				 border-radius:50%;
+				 text-align: center;
+			 }
+			 .sr{
+				display: flex;
+				overflow: hidden;
+				font-size: 14px;
+				justify-content: space-between;
+				 align-items: center;
+				 background:rgba(240,240,240,1);
+				 border-radius:8px;
+				 height: 50px;
+				 text-align: left;
+				 padding: 0 15px;
+				 color: #666666;
+				 margin-top: 11px;
+			 }
+			 .sr input{
+				 outline: none;
+				 border: none;
+				 background:rgba(240,240,240,1) ;
+				 width: 79%;
+				 height: 100%;
+				 text-align: right;
+				 color: #1A1A1A;
+			 }
+		</style>
+	</head>
+
+	<body ontouchstart style="padding: 30px 0;">
+		<ul class="zt">
+			<li>
+				<img src="images/gl.png" >
+				<p>扫码激活</p>
+			</li>
+			<li>
+				<img src="images/gl.png" >
+				<p>确认激活</p>
+			</li>
+			<li>
+				<img src="images/gl.png" >
+				<p>填写资料</p>
+			</li>
+			<li>
+				<img src="images/gh.png" >
+				<p style="color: #999999;">激活成功</p>
+			</li>
+		</ul>
+		<div class="x" style="margin-top: 20px;"></div>
+		<div class="jhbody">
+			<div class="txzl">
+				<div class="weui_uploader_bd">
+				  <ul class="weui_uploader_files">
+					  <li class="weui_uploader_file weui_uploader_status">
+						  <img id="yl" src="images/sc.png" >
+						  <div style="display: none;" class="weui_uploader_status_content">0%</div>
+						  
+					  </li>
+				    <!-- 预览图插入到这 --> 
+					</ul>
+				  <div class="weui_uploader_input_wrp">
+				    <input style="display: none;" class="weui_uploader_input js_file" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple=""></div>
+				</div>
+				
+			</div>
+				<div class="sr">
+					真实姓名
+					<input type="text" id="name" value="" placeholder="请输入姓名" />
+				</div>
+				<div class="sr">
+					身份证号
+					<input type="number" id="man" value="" placeholder="请输入身份证号" />
+				</div>
+				<div class="sr">
+					手机号
+					<input type="tel" id="phone" value="" placeholder="请输入手机号" />
+				</div>
+				<div class="sr">
+					验证码
+					<input style="width: 50%;" type="text" id="code" value="" placeholder="验证码" />
+					<span id="go" style="color: #0695FF;">获取验证码</span>
+				</div>
+			<div class="xj">
+				<h2>注意细则：</h2>
+				<p>请务必填写真实信息，如信息错误，可能导致无法到景 区正常验票入园。</p>
+			</div>
+			<button id="next" type="button">
+				确认激活
+			</button>
+			
+		</div>
+		<!-- <iframe id="geoPage" width=0 height=0 frameborder=0  style="display:none;" scrolling="no"
+		    src="https://apis.map.qq.com/tools/geolocation?key=77VBZ-EAS3W-CSBR7-OP6XF-F2NDQ-P2F7Z&referer=myapp">
+		</iframe> -->
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script>
+			var token = sessionStorage.getItem('token');
+			$("input").on("blur",function(){
+				window.scroll(0,0);//失焦后强制让页面归位
+			});
+			console.log(token);
+			function GetQueryString(name)
+			{
+			    var reg = new RegExp("\\b"+ name +"=([^&]*)");
+			    var r = location.href.match(reg);
+			    if (r!=null) return unescape(r[1]);
+			}
+			var sn =GetQueryString("valus");
+			console.log(sn);
+			
+			
+			
+			
+			// window.addEventListener('message', function(event) {
+			//     // 接收位置信息
+			//     var loc = event.data;
+			//    alert(loc);
+			// }, false)
+			
+			
+
+			
+			
+			
+			
+			
+			
+		
+
+		
+		
+			
+			
+			
+			
+			
+			
+			
+			
+		$.weui = {};
+		$.weui.alert = function(options) {
+		    options = $.extend({
+		        title: '警告',
+		        text: '警告内容'
+		    }, options);
+		    var $alert = $('.weui_dialog_alert');
+		    $alert.find('.weui_dialog_title').text(options.title);
+		    $alert.find('.weui_dialog_bd').text(options.text);
+		    $alert.on('touchend click', '.weui_btn_dialog', function() {
+		        $alert.hide();
+		    });
+		    $alert.show();
+		};
+		
+		    // 允许上传的图片类型  
+		    var allowTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+		    // 1024KB，也就是 1MB  
+		    var maxSize = 1024 * 1024;
+		    // 图片最大宽度  
+		    var maxWidth = 300;
+		    // 最大上传图片数量  
+		    var maxCount = 6;
+			$('#yl').click(function(){
+				$('.js_file').trigger('click');
+			})
+			// var imgurl = '';
+		    $('.js_file').on('change', function(event) {
+		        var files = event.target.files;
+		
+		        // 如果没有选中文件，直接返回  
+		        if (files.length === 0) {
+		            return;
+		        }
+				// var imgArr = [];
+				// //遍历获取到得图片文件
+				// for (var i = 0; i < files.length; i++) {
+				//     var imgUrl = window.URL.createObjectURL(files[i]);
+				//     imgArr.push(imgUrl);
+				//     var img = document.createElement("img");
+				//     img.setAttribute("src", imgArr[i]);
+				//     // var imgAdd = document.createElement("div");
+				//     // imgAdd.setAttribute("class", "z_addImg");
+				//     // imgAdd.appendChild(img);
+				//     // imgContainer.appendChild(imgAdd);
+				// };
+				// console.log(files[0]);
+				
+				
+				// $.ajax({
+				// 	url:"http://user.yangergou.com/api/Card/card_picture",
+				// 	type:"post",
+				// 	data:{
+				// 		token,
+				// 		picture:imgArr,
+				// 	},
+				// 	success:function(res){
+				// 		console.log(res);
+				// 	}
+				// })
+				
+					
+					
+		        for (var i = 0, len = files.length; i < len; i++) {
+		            var file = files[i];
+					console.log(file);
+					
+		            var reader = new FileReader();
+		
+		            // 如果类型不在允许的类型范围内  
+		            if (allowTypes.indexOf(file.type) === -1) {
+		                $.weui.alert({
+		                    text: '该类型不允许上传'
+		                });
+		                continue;
+		            }
+		
+		            if (file.size > maxSize) {
+		                $.weui.alert({
+		                    text: '图片太大，不允许上传'
+		                });
+		                continue;
+		            }
+		
+		            if ($('.weui_uploader_file').length >= maxCount) {
+		                $.weui.alert({
+		                    text: '最多只能上传' + maxCount + '张图片'
+		                });
+		                return;
+		            }
+		            reader.onload = function(e) {
+						// console.log(img);
+		                var img = new Image();
+		                img.onload = function() {
+		                    // 不要超出最大宽度  
+							console.log(img);
+		                    var w = Math.min(maxWidth, img.width);
+		                    // 高度按比例计算  
+		                    var h = img.height * (w / img.width);
+		                    var canvas = document.createElement('canvas');
+		                    var ctx = canvas.getContext('2d');
+		                    // 设置 canvas 的宽度和高度  
+		                    canvas.width = w;
+		                    canvas.height = h;
+		                    ctx.drawImage(img, 0, 0, w, h);
+		                    var base64 = canvas.toDataURL('image/png');
+		                    // 插入到预览区
+							  // $('#yl').attr('src',base64);
+							  // console.log(base64);
+							  // var $preview = $('#yl').attr('base64');
+							  // imgurl = $preview;
+		                    // var $preview = $('<li class="weui_uploader_file weui_uploader_status" style="background-image:url(' + base64 + ')"><div class="weui_uploader_status_content">0%</div></li>');
+		                    // $('.weui_uploader_files').append($preview);
+		                    // var num = $('.weui_uploader_file').length;
+		                    // $('.js_counter').text(num + '/' + maxCount);
+		// console.log(imgurl);
+		                    // 然后假装在上传，可以post base64格式，也可以构造blob对象上传，也可以用微信JSSDK上传 
+							console.log(base64);
+							if(base64){
+									$.ajax({
+										url:'http://user.yangergou.com/api/Card/card_picture',
+										async : false,
+										type: "POST",
+										data: {
+											picture:base64,
+										},
+										dataType: "json",
+										success: function(data) {
+											console.log(data);
+											var img = data.data.list;
+											$('#yl').attr('src',img);
+										},
+										error: function(xhr) {
+											console.log(xhr);
+										}
+									});
+							}
+							
+							 
+							
+							 
+							 
+							 
+		// 
+		//                     var progress = 0;
+		// 
+		//                     function uploading() {
+		//                        $('.weui_uploader_status_content').text(++progress + '%');
+		//                         if (progress < 100) {
+		//                             setTimeout(uploading, 30);
+		//                         } else {
+		//                             // 如果是失败，塞一个失败图标  
+		//                             //$preview.find('.weui_uploader_status_content').html('<i class="weui_icon_warn"></i>');  
+		//                             $('.weui_uploader_status_content').removeClass('weui_uploader_status');
+		//                         }
+		//                     }
+		//                     setTimeout(uploading, 30);
+		                };
+		
+		                img.src = e.target.result;
+		            };
+		            reader.readAsDataURL(file);
+					
+		        }
+				console.log(file);
+				
+		    });
+			
+			
+			wx.ready(function(){
+				
+				wx.getLocation({
+				type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+				success: function (res) {
+				var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+				var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+				var speed = res.speed; // 速度，以米/每秒计
+				var accuracy = res.accuracy; // 位置精度
+				console.log(latitude);
+				console.log(longitude);
+				var zb = longitude+","+latitude;
+				console.log(zb);
+				$('#next').click(function(){
+					var uname = $('#name').val();
+					var identity = $('#man').val();
+					var tel = $('#phone').val();
+					var code = $('#code').val();
+					var imgsrc =$('#yl').attr('src');
+					console.log(imgsrc)
+					if(!( /^[\u4E00-\u9FA5]{2,4}$/.test(uname))){
+						 $.toptip('姓名输入有误');
+					}else{
+						if(!( /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(identity))){
+							 $.toptip('身份证号输入有误');
+						}else{
+							if (!(/^1[34578]\d{9}$/.test(tel))) {
+							            $.toptip('手机号输入有误');
+							        }else{
+										if(!imgsrc){
+											 $.toptip('请上传真实头像');
+										}else{
+											console.log(132456);
+											if(!($('#man').val())){
+												$.toptip('请输入身份证号');
+											}else{
+												$.ajax({
+													url:'http://user.yangergou.com/api/Card/activationNewCard',
+													type:'post',
+													dataType:'json',
+													data:{
+														picture:imgsrc,
+														identity:identity,
+														tel:tel,
+														card_sn:sn,
+														token:token,
+														event:'yanzheng',
+														phone:tel,
+														captcha:code,
+														uname:uname,
+														zb:zb,
+													},
+													success:function(res){
+														console.log(res);
+														if(res.code == 200){
+															var erwm = res.data.list;
+															if(erwm){
+																console.log(erwm);
+																window.location.href = 'nkjh111.html?erwm='+erwm;
+															}else{
+																window.location.href = 'nkjh1111.html';
+															}
+														}else{
+															$.alert(res.msg);
+															console.log(123456);
+														}
+													},
+													error(e){
+														console.log(e);
+													}
+												})
+											}
+										}
+									}
+							
+							
+						}
+					}
+					
+					
+				
+				})
+				
+				
+				}
+				});
+				
+			  // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			});
+			
+			
+		
+		
+		
+
+		
+		
+		
+		
+		
+		// 获取验证码
+		$('#go').click(function(){
+			var phone = $('#phone').val();
+			
+			if (!(/^1[34578]\d{9}$/.test(phone))) {
+			            $.toptip('手机号输入有误');
+			        }else{
+						console.log(123456);
+						$('#go').css('pointer-events','none');
+						countDown();
+						$.ajax({
+							url:'http://user.yangergou.com/api/Card/getCode',
+							type:'post',
+							dataType:'json',
+							data:{
+								token,
+								phone:phone,
+								event:'yanzheng',
+							},
+							success:function(data){
+								console.log(data);
+								if(data.code == 200){
+										$.alert(data.msg);
+								}else{
+									$.alert(data.msg);
+								}
+							}
+						})
+					}
+		})
+		
+			var flag = 1;  
+			var i = 60;  
+			function countDown() {  
+			    i = i - 1;  
+			    $("#go").html(i+"秒后重新发送");  
+			    if (i == 0) {  
+			        $("#go").html("重新发送");  
+			        flag = 1;  
+			        i = 60;  
+					$('#go').css('pointer-events','auto');
+			        return;  
+			    }  
+			    setTimeout('countDown()',1000);  
+			} 
+		
+		
+		
+		// (!tel || !/1[3|4|5|7|8]\d{9}/.test(tel)) $.toptip('请输入手机号');
+		// (!code || !/\d{6}/.test(code)) $.toptip('请输入六位手机验证码');
+		
+		
+		
+		
+		
+		</script>
+	</body>
+</html>

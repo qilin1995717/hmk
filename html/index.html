@@ -8,7 +8,6 @@
 
 		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
-
 		<link rel="stylesheet" href="../lib/weui.min.css">
 		<link rel="stylesheet" href="../css/jquery-weui.css">
 		<link rel="stylesheet" href="css/demos.css">
@@ -16,27 +15,17 @@
 	</head>
 
 	<body ontouchstart>
-		<div class="weui-tab" style="overflow: hidden;">
-			<div class="weui-tab__bd">
 				<div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
 					<div class="swiper-container swiper-container-horizontal swiper-container-android" style="height: 175px;">
 
 						<div class="seach">
 							<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;">
 								<img class="s" src="images/icon_1@2x.png">
-								<input type="search" placeholder="搜索目的地/景点" />
-								<img id="me" class="m" src="images/icon_2@2x.png">
+								<input id="me" type="search" placeholder="搜索目的地/景点" />
 							</div>
 						</div>
 						<!-- Additional required wrapper -->
 						<div class="swiper-wrapper" style="transform: translate3d(-1200px, 0px, 0px); transition-duration: 0ms;">
-							<div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
-							<!-- Slides -->
-							<div class="swiper-slide" data-swiper-slide-index="0" style="width: 400px;"><img src="./images/swiper-1.jpg"></div>
-							<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1" style="width: 400px;"><img src="./images/swiper-2.jpg"></div>
-							<div class="swiper-slide swiper-slide-active" data-swiper-slide-index="2" style="width: 400px;"><img src="./images/swiper-3.jpg"></div>
-							<div class="swiper-slide swiper-slide-duplicate swiper-slide-next" data-swiper-slide-index="0" style="width: 400px;"><img
-								 src="./images/swiper-1.jpg"></div>
 						</div>
 						<!-- If we need pagination -->
 						<div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span
@@ -66,7 +55,7 @@
 							</div>
 						</div>
 						<div>
-							<img src="images/img_1@2x.png" style="width: 100%;margin-top: 12px;">
+							<img id="imgl2" src="images/img_1@2x.png" style="width: 100%;margin-top: 12px;">
 						</div>
 					</div>
 <!-- 					<div class="x"></div>
@@ -104,8 +93,8 @@ border-radius:0px 0px 15px 0px;text-align: center;">
 									<img src="images/icon_4.png" class="ico" style="width: 7px;">
 							</div>
 						</div>
-						<div class="boxp15" style="padding-top: 0;">
-							<div class="jq">
+						<div id="homejq" class="boxp15" style="padding-top: 0;">
+							<!-- <div class="jq">
 								<div class="img">
 									<img src="images/jq.png" >
 								</div>
@@ -164,265 +153,31 @@ border-radius:0px 0px 15px 0px;text-align: center;">
 									<p>河南 · 郑州 距您235km</p>
 									<p>游览日期：2019年9月25日~26日</p>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
-					<div style="height: 50px;"></div>
-				</div>
-
-				<!-- 景区预约 -->
-				<div id="tab2" class="weui-tab__bd-item">
-					<div style="height: 100px;background:linear-gradient(0deg,rgba(37,109,255,1),rgba(6,149,255,1));margin-bottom: 15px;">
-					<div class="seach seachjq">
-						<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;position: relative;">
-							<img class="s" src="images/icon_1@2x.png">
-							<input type="search" placeholder="搜索目的地/景点" />
-						</div>
-					</div>
-					<div class="tap">
-						<h2>全部地区</h2>
-						<h2>全部月份</h2>
-					</div>
-					</div>
-					<div class="boxp15" style="padding-top: 0;">
-						<div class="jq">
-							<div class="img">
-								<img src="images/jq.png" >
-							</div>
-							<div class="jqboy">
-								<h2>嵩山少林寺景区</h2>
-								<div class="jqico">
-									<span>5A</span>
-									<span>名胜古迹</span>
-									<h3><b>75</b>元</h3>
-								</div>
-								<p>河南 · 郑州 距您235km</p>
-								<p>游览日期：2019年9月25日~26日</p>
-							</div>
-						</div>
-						<div class="jq">
-							<div class="img">
-								<img src="images/jq.png" >
-							</div>
-							<div class="jqboy">
-								<h2>嵩山少林寺景区</h2>
-								<div class="jqico">
-									<span>5A</span>
-									<span>名胜古迹</span>
-									<h3><b>75</b>元</h3>
-								</div>
-								<p>河南 · 郑州 距您235km</p>
-								<p>游览日期：2019年9月25日~26日</p>
-							</div>
-						</div>
-						<div class="jq">
-							<div class="img">
-								<img src="images/jq.png" >
-							</div>
-							<div class="jqboy">
-								<h2>嵩山少林寺景区</h2>
-								<div class="jqico">
-									<span>5A</span>
-									<span>名胜古迹</span>
-									<h3><b>75</b>元</h3>
-								</div>
-								<p>河南 · 郑州 距您235km</p>
-								<p>游览日期：2019年9月25日~26日</p>
-							</div>
-						</div>
-						<div class="jq">
-							<div class="img">
-								<img src="images/jq.png" >
-							</div>
-							<div class="jqboy">
-								<h2>嵩山少林寺景区</h2>
-								<div class="jqico">
-									<span>5A</span>
-									<span>名胜古迹</span>
-									<h3><b>75</b>元</h3>
-								</div>
-								<p>河南 · 郑州 距您235km</p>
-								<p>游览日期：2019年9月25日~26日</p>
-							</div>
-						</div>
-					</div>
-					<div id="city" class="tc" style="display: none;">
-						<div class="tcnr">
-							
-						</div>
-					</div>
-					<div id="mouth" class="tc" style="display: none;">
-						<div class="tcnr">
-							
-						</div>
-					</div>
-					<div style="height: 50px;"></div>
-				</div>
-				<div id="tab3" class="weui-tab__bd-item">
-					<div class="boxp15">
-						<a href="" >
-							<img src="images/ka.png" style="width: 100%;">
-						</a>
-						<div class="yearcard">
-							<div class="top">
-								<img src="images/cdj.png" >
-								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
-							</div>
-							<div class="bot">
-								<div class="botr">
-									<p><span>￥99 /1年</span>原价:￥990</p>
-									<p>结束时间：2019-12-31</p>
-								</div>
-								<button type="button">
-									立即购买
-								</button>
-							</div>
-						</div>
-						<div class="yearcard">
-							<div class="top">
-								<img src="images/cdj.png" >
-								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
-							</div>
-							<div class="bot">
-								<div class="botr">
-									<p><span>￥99 /1年</span>原价:￥990</p>
-									<p>结束时间：2019-12-31</p>
-								</div>
-								<button type="button">
-									立即购买
-								</button>
-							</div>
-						</div>
-					</div>
-					
-					
-					<div style="height: 50px;"></div>
-				</div>
-				<div id="tab4" class="weui-tab__bd-item" style="background:rgba(245,245,245,1);">
-					<div class="headbg" style="background: url(images/userbg.png);height: 154px;background-size: cover;">
-						<div class="zl">
-							<img src="../demo/images/avatar.jpg" >
-							<div class="name">
-								<h2>谁打谁</h2>
-								<p><span>普通会员</span><span>城市合伙人</span></p>
-							</div>
-							<button type="button">
-								个人资料
-							</button>
-						</div>
-					</div>
-					<div class="boxp15 user" style="margin-top: -65px;">
-						<a id="nk">
-							<img src="images/hy.png" style="width: 100%;">
-						</a>
-						<div class="usercard">
-							<h2>我的订单</h2>
-							<ul>
-								<li><a href="">
-									<img src="images/qbdd.png" >
-									<h2>全部订单</h2>
-									</a>
-								</li>
-								<li><a href="">
-									<img src="images/dyy.png" >
-									<h2>待预约</h2>
-									</a>
-								</li>
-								<li><a href="">
-									<img src="images/dsy.png" >
-									<h2>待使用</h2>
-									</a>
-								</li>
-								<li><a href="">
-									<img src="images/ysy.png" >
-									<h2>已使用</h2>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div class="usercard">
-							<h2>我的功能</h2>
-							<ul>
-								<li><a href="">
-									<img src="images/wdnk.png" >
-									<h2>我的年卡</h2>
-									</a>
-								</li>
-								<li><a href="">
-									<img src="images/nkzy.png" >
-									<h2>年卡转移</h2>
-									</a>
-								</li>
-								<li><a href="">
-									<img src="images/wdjq.png" >
-									<h2>我的景区</h2>
-									</a>
-								</li>
-								<!-- <li><a href="">
-									<img src="images/wdzp.png" >
-									<h2>我的作品</h2>
-									</a>
-								</li> -->
-							</ul>
-						</div>
-						<div class="userlist">
-							<ul>
-								<li>
-									<a href="">
-										<img src="images/dls.png" >
-										代理商
-									</a>
-								</li>
-							</ul>
-						</div>
-						
-						<div class="userlist">
-							<ul>
-								<li>
-									<a href="">
-										<img src="images/dhkf.png" >
-										电话客服
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="images/cjwt.png" >
-										常见问题
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="images/gywm.png" >
-										关于我们
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div style="height: 50px;"></div>
-				</div>
-			</div>
-			<div class="weui-tabbar">
-				<a href="#tab1" class="weui-tabbar__item weui-bar__item--on">
+					<div style="height: 80px;"></div>
+			<div class="weui-tabbar" style="position: fixed;">
+				<a href="index.html" class="weui-tabbar__item weui-bar__item--on">
 					<div class="weui-tabbar__icon">
 						<img src="./images/menu_01@2x.png" alt="">
 					</div>
 					<p class="weui-tabbar__label">首页</p>
 				</a>
-				<a href="#tab2" class="weui-tabbar__item">
+				<a href="jq.html" class="weui-tabbar__item">
 					<div class="weui-tabbar__icon">
 						<img src="./images/menu_2@2x.png" alt="">
 					</div>
 					<p class="weui-tabbar__label">景区预约</p>
 				</a>
-				<a href="#tab3" class="weui-tabbar__item">
+				<a href="nk.html" class="weui-tabbar__item">
 					<div class="weui-tabbar__icon">
 						<img src="./images/menu_3@2x.png" alt="">
 					</div>
 					<p class="weui-tabbar__label">年卡购买</p>
 				</a>
-				<a href="#tab4" class="weui-tabbar__item">
+				<a href="user.html" class="weui-tabbar__item">
 					<div class="weui-tabbar__icon">
 						<img src="./images/menu_4@2x.png" alt="">
 					</div>
@@ -439,13 +194,16 @@ border-radius:0px 0px 15px 0px;text-align: center;">
 			});
 		</script>
 		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script src="../js/index.js"></script>
 		<script src="../js/swiper.js"></script>
-		<script src="../js/config.js"></script>
 		<script type="text/javascript">
 			$(".swiper-container").swiper({
 				loop: true,
 				autoplay: 2000
 			});
+			
 		</script>
 	</body>
 </html>

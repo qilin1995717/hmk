@@ -5314,6 +5314,7 @@ Device/OS Detection
                   if (p.params.weekendDays.indexOf(col - 1) >= 0) {
                       addClass += ' picker-calendar-day-weekend';
                   }
+				  
                   // Disabled
                   if ((minDate && dayDate < minDate) || (maxDate && dayDate > maxDate)) {
                       addClass += ' picker-calendar-day-disabled';   
@@ -5322,8 +5323,25 @@ Device/OS Detection
                   dayDate = new Date(dayDate);
                   var dayYear = dayDate.getFullYear();
                   var dayMonth = dayDate.getMonth();
-                  rowHTML += '<div data-year="' + dayYear + '" data-month="' + dayMonth + '" data-day="' + dayNumber + '" class="picker-calendar-day' + (addClass) + '" data-date="' + (dayYear + '-' + dayMonth + '-' + dayNumber) + '"><span>'+dayNumber+'</span></div>';
-              }
+                 if(dayNumber < 10){
+					 dayNumber = '0' + dayNumber;
+				 }
+				 if(dayMonth < 10){
+				 					 dayMonth = '0' + dayMonth;
+				 }
+				 // 时间
+				 
+				  rowHTML += '<div data-year="' + dayYear + '" data-month="' + dayMonth + '" data-day="' + dayNumber + '" class="picker-calendar-day' + (addClass) + '" data-date="' + (dayYear + '-' + (Number(dayMonth) + 1) + '-' + dayNumber) + '"><span>'+dayNumber+'<p></p></span></div>';
+            
+			
+			
+			
+			
+				// 时间
+			
+			
+			
+			  }
               monthHTML += '<div class="picker-calendar-row">' + rowHTML + '</div>';
           }
           monthHTML = '<div class="picker-calendar-month" data-year="' + year + '" data-month="' + month + '">' + monthHTML + '</div>';
@@ -5340,7 +5358,7 @@ Device/OS Detection
               p.currentYear = parseInt(p.months.eq(dir === 'next' ? (p.months.length - 1) : 0).attr('data-year'), 10);
           }
           p.container.find('.current-month-value').text(p.params.monthNames[p.currentMonth]);
-          p.container.find('.current-year-value').text(p.currentYear);
+          p.container.find('.current-year-value').text(p.currentYear + '年');
               
       };
       p.onMonthChangeStart = function (dir) {
@@ -5583,9 +5601,11 @@ Device/OS Detection
 
           pickerHTML =
               '<div class="' + (pickerClass) + '">' +
+			  '<h2>选择日期</h2>' +
+			   weekHeaderHTML +
                   toolbarHTML +
                   '<div class="picker-modal-inner">' +
-                      weekHeaderHTML +
+                     
                       monthsHTML +
                   '</div>' +
               '</div>';
@@ -5804,10 +5824,10 @@ Device/OS Detection
 
   defaults = $.fn.calendar.prototype.defaults = {
     value: undefined, // 通过JS赋值，注意是数组
-    monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-    monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-    dayNames: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-    dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+    monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+    monthNamesShort: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+    dayNames: ['日', '一', '二', '三', '四', '五', '六'],
+    dayNamesShort: ['日', '一', '二', '三', '四', '五', '六'],
     firstDay: 1, // First day of the week, Monday
     weekendDays: [0, 6], // Sunday and Saturday
     multiple: false,
@@ -5864,7 +5884,7 @@ Device/OS Detection
 /* global $:true */
 /* jshint unused:false*/
 
-+ function($) {
+// + function($) {
   "use strict";
 
 
@@ -6066,7 +6086,7 @@ Device/OS Detection
     }
   }
 
-}($);
+// }($);
 
 /*======================================================
 ************   Picker   ************

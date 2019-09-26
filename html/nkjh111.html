@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" href="css/jh.css">
+	</head>
+
+	<body ontouchstart style="padding: 30px 0;">
+		<ul class="zt" style="padding-bottom: 20px;">
+			<li>
+				<img src="images/gl.png" >
+				<p>扫码激活</p>
+			</li>
+			<li>
+				<img src="images/gl.png" >
+				<p>确认激活</p>
+			</li>
+			<li>
+				<img src="images/gl.png" >
+				<p>填写资料</p>
+			</li>
+			<li>
+				<img src="images/gl.png" >
+				<p>激活成功</p>
+			</li>
+		</ul>
+		<div class="x"></div>
+		<div class="jhbody">
+			<h2 style="font-size: 15px;color: #1A1A1A;margin-top: 25px;">关注公众号才能激活卡片，<br> 以便更好的进行出游预约和管理！</h2>
+			<img src="images/sao.png" style="width: 80%;margin-top: 25px;">
+			<p style="margin-top: 19px;color: #0695FF;background:rgba(6,149,255,.1);padding: 6px 9px;display: inline-block;border-radius:13px;">微信扫描二维码-跳转公众号</p>
+		</div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script type="text/javascript">
+			function GetQueryString(name)
+			{
+			    var reg = new RegExp("\\b"+ name +"=([^&]*)");
+			    var r = location.href.match(reg);
+			    if (r!=null) return unescape(r[1]);
+			}
+			var erwm =GetQueryString("erwm");
+			console.log(erwm);
+		</script>
+	</body>
+</html>

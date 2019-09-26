@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+
+
+		<style>
+			.swiper-container {
+				width: 100%;
+			}
+
+			.swiper-container img {
+				display: block;
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+
+		<div  style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);color: #FFFFFF;padding: 20px 15px;position: relative;">
+			<h2 id="name" style="font-size: 20px;">嵩山少林寺景区</h2>
+			<p style="font-size: 12px;margin-top: 11px;">*凭订单二维码在景区售票窗口验票入园</p>
+			<span style="position: absolute;top: 20px;right: 20px;">></span>
+		</div>
+		<div class="yysm tbsm" style="padding: 0;">
+			<ul style="padding: 10px 0;border-bottom: 1px solid #EEEEEE;margin: 0 25px;">
+				<li>
+					<span class="yy">
+						入园时间：
+					</span>
+					<span class="nr">
+						<p id="rysj"></p>
+					</span>
+				</li>
+				<li>
+					<span class="yy">
+						使用日期：
+					</span>
+					<span class="nr">
+						<p id="yyrq"></p>
+						
+					</span>
+				</li>
+			</ul>
+		</div>
+		<div style="text-align: center;background: #FFFFFF;">
+			<img src="../demo/images/avatar3.jpg" style="width: 170px;height: 170px;margin-top: 20px;">
+			<h2 style="margin-top: 12px;margin-bottom: 25px;font-size: 16px;">入园核销码：8446 7285</h2>
+		</div>
+		<div style="display: flex; justify-content: space-between;align-items: center;border-top: 1px solid #EEEEEE;">
+			<a id="quxiao" style="margin: 5px 0;text-align: center;color:#808080; border-right: 1px solid #eee; width: 50%;padding: 6px;">取消预约</a>
+			<a id="diw" style="margin: 5px 0;text-align: center;color:#0695FF;width: 50%;padding: 6px;">景区导航</a>
+		</div>
+		<div class="x"></div>
+		<div class="yysm tbsm">
+			<h2 class="pagebt">
+				出游人
+			</h2>
+			<ul id="cyr">
+				
+			</ul>
+		</div>
+		<div class="x"></div>
+		<div class="yysm tbsm">
+			<h2 class="pagebt">
+				订单信息
+			</h2>
+			<ul>
+				<li>
+					<span class="yy">
+						订单号：
+					</span>
+					<span class="nr">
+						<p id="ddh"></p>
+					</span>
+				</li>
+				<li>
+					<span class="yy">
+						下单日期：
+					</span>
+					<span class="nr">
+						<p id="xdrq"></p>
+					</span>
+				</li>
+			</ul>
+		</div>
+		</div>
+		<div style="height: 50px;"></div>
+
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+
+		<script src="../js/swiper.js"></script>
+		<script>
+			var token = sessionStorage.getItem('token');
+			function GetQueryString(name)
+			{
+			    var reg = new RegExp("\\b"+ name +"=([^&]*)");
+			    var r = location.href.match(reg);
+			    if (r!=null) return unescape(r[1]);
+			}
+			var ma =GetQueryString("ma");
+			console.log(ma);
+			
+			var latitude = "";
+			var longitude = "";
+			$.ajax({
+				url:'http://user.yangergou.com/api/Scenic/scenicCardInfo',
+				type:'post',
+				dataType:'json',
+				data:{
+					sub_order_sn:ma,
+					token:token,
+				},
+				success:function(res){
+					console.log(res);
+					longitude = res.data.scenic_info.xcode;
+					latitude =res.data.scenic_info.ycode;
+					$('#name').text(res.data.scenic_info.name);
+					$('#ddh').text(res.data.subscribe_order_info.sub_order_sn);
+					$('#xdrq').text(res.data.subscribe_order_info.addtime);
+					$('#rysj').text(res.data.scenic_info.remarks + '(以景区实际开园时间为准)');
+					$('#yyrq').text(res.data.subscribe_order_info.time);
+					var ren = res.data.subscribe_order_card_info;
+					var html = '';
+					for(i=0; i<ren.length; i++){
+						
+						
+						
+						if(ren[i].identity != ''){
+							html += "<li>"+
+							"<span class='yy'>"+
+								"出游人:"+
+							"</span>"+
+							"<span class='nr'>"+
+								"<p>"+ ren[i].uname + '(' + ren[i].identity +')' +"</p>"+
+							"</span>"+
+							"</li>"
+						}
+						
+						
+						
+						
+						
+					}
+					$('#cyr').html(html);
+				}
+			})
+			
+			wx.ready(function(){
+			$('#diw').click(function () {
+			    wx.openLocation({
+			        latitude: Number(latitude), // 纬度，浮点数，范围为90 ~ -90。如果是动态获取的数据，使用parseFloat()处理数据
+			        longitude: Number(longitude), // 经度，浮点数，范围为180 ~ -180。如果是动态获取的数据，使用parseFloat()处理数据；
+			        name: '景区位置', // 位置名
+			        address: '潮得劲', // 地址详情说明
+			        scale: 10, // 地图缩放级别,整形值,范围从1~28。默认为最大
+			    });
+			})
+			
+			});
+			
+			
+			$('#quxiao').click(function(){
+				var cardsn = $('#ddh').text();
+				console.log(cardsn);
+				$.ajax({
+					url:'http://user.yangergou.com/api/Scenic/scenicCardDel',
+					type:'post',
+					dataType:'json',
+					data:{
+						sub_order_sn:cardsn,
+						token,token,
+					},
+					success:function(res){
+						console.log(res);
+						$.alert(res.msg, function() {
+						  //点击确认后的回调函数
+						  window.location.href = 'jqlist.html';
+						});
+						
+					}
+				})
+			})
+			
+		</script>
+	</body>
+</html>

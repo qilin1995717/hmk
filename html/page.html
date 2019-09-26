@@ -8,7 +8,6 @@
 
 		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 ">
-
 		<link rel="stylesheet" href="../lib/weui.min.css">
 		<link rel="stylesheet" href="../css/jquery-weui.css">
 		<link rel="stylesheet" href="css/demos.css">
@@ -23,6 +22,12 @@
 				display: block;
 				width: 100%;
 			}
+			.weui-btn:after{
+				display: none;
+			}
+			.money{
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -32,9 +37,9 @@
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<!-- Slides -->
-				<div class="swiper-slide"><img src="./images/swiper-1.jpg" /></div>
-				<div class="swiper-slide"><img src="./images/swiper-2.jpg" /></div>
-				<div class="swiper-slide"><img src="./images/swiper-3.jpg" /></div>
+				<div class="swiper-slide">
+					<img id="picture" src="" />
+					</div>
 			</div>
 			<!-- If we need pagination -->
 			<div class="swiper-pagination"></div>
@@ -43,11 +48,11 @@
 		<div class="page">
 			<a class="weui-cell weui-cell_access" href="javascript:;">
 				<div class="weui-cell__bd">
-					<h2 style="font-size: 19px;color: #1A1A1A;margin-bottom: 10px;">少林寺</h2>
+					<h2 id="name" style="font-size: 19px;color: #1A1A1A;margin-bottom: 10px;">少林寺</h2>
 					<div class="jqico" style="display: flex;align-items: center;padding-bottom: 10px;justify-content: space-between;">
 						<div>
-							<span>5A</span>
-							<span>名胜古迹</span>
+							<span id="grade1">5A</span>
+							<!-- <span id="grade2">名胜古迹</span> -->
 						</div>
 						<div id="ll">
 							<img src="images/ll.png">
@@ -56,17 +61,15 @@
 					</div>
 				</div>
 			</a>
-			<a class="weui-cell weui-cell_access" href="javascript:;">
+			<a id="diw" class="weui-cell weui-cell_access" href="javascript:;">
 				<div class="weui-cell__bd">
-					<p style="color: #1A1A1A;font-size: 14px;display: flex;align-items: center;"><img src="images/dw.png" style="width: 14px;margin-right: 5px;">河南省登封市嵩山少室山</p>
+					<p style="color: #1A1A1A;font-size: 14px;display: flex;align-items: center;"><img src="images/dw.png" style="width: 14px;margin-right: 5px;"><span id="dtwz"></span></p>
 				</div>
 				<div class="weui-cell__ft">
 				</div>
 			</a>
 		</div>
-		<div id="go" style="height: 50px;overflow: hidden;text-align: center;">
-				<img src="images/gmnk.png" style="height: 100%;">
-		</div>
+				<img src="images/gmnk.png" style="width: 100%;" id="go">
 
 		<div class="x"></div>
 		<div class="tbsm">
@@ -76,7 +79,7 @@
 					<span class="ic">
 						另外费用
 					</span>
-					<span class="nr">
+					<span class="nr" id="other_expenses">
 
 						5元/人服务费+2元/保险费需会员自理，溶洞景区洞内地势起伏较多；
 
@@ -86,7 +89,7 @@
 					<span class="ic">
 						联系电话
 					</span>
-					<span class="nr">
+					<span class="nr" id="contact_number">
 						客服电话：0371-69225888；
 
 					</span>
@@ -95,7 +98,7 @@
 					<span class="ic">
 						注意事项
 					</span>
-					<span class="nr">
+					<span class="nr" id="attention">
 
 						请注意：此景区不接待团队预约；
 
@@ -114,7 +117,7 @@
 						门票价格：
 					</span>
 					<span class="nr">
-						<p>景区大门票：旺季150元/人，淡季120元/人。</p>
+						<p id="ticket_price"></p>
 					</span>
 				</li>
 				<li>
@@ -122,13 +125,8 @@
 						活动日期：
 					</span>
 					<span class="nr">
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p class="red">2018年04月25日~2018年04月26日</p>
-						<p>
-							年卡会员可在活动日期免费游览该景区，入园
-							前1~7天在本页面预约。
-						</p>
+						<p id="activity_date"></p>
+						
 					</span>
 				</li>
 				<li>
@@ -136,14 +134,12 @@
 						开放时间：
 					</span>
 					<span class="nr">
-						<p>123654</p>
-						<p>456789</p>
-						<p>周一闭馆</p>
+						<p id="opening_hours"></p>
 					</span>
 				</li>
 			</ul>
 		</div>
-		<div class="wxts tbsm">
+<!-- 		<div class="wxts tbsm">
 			<h2 class="pagebt">
 				温馨提示
 			</h2>
@@ -163,12 +159,12 @@
 				④由于政治经济活动，天气变化或其它不可抗力因素造成景区无法预约游览的，不视为主办方违约。 
 			</p>
 			</div>
-		</div>
+		</div> -->
 		<div class="jqjs tbsm">
 			<h2 class="pagebt">
 				景区介绍
 			</h2>
-			<div class="boxp15">
+			<div class="boxp15" id="body">
 				<img src="images/jq.png" >
 				<p>
 					少林寺位于河南省郑州市登封市嵩山五乳峰下，因坐落于嵩山腹地少室山茂密丛林之中，故名“少林寺”。始建于北魏太和十九年（495年），是孝文帝为了安置他所敬仰的印度高僧跋陀尊者，在与都城洛阳相望的嵩山少室山北麓敕建而成。少林寺常住院占地面积约57600平方米，现任方丈是曹洞正宗第47世、第33代嗣祖沙门释永信。 [1] 
@@ -180,11 +176,16 @@
 			</div>
 		</div>
 		<div style="height: 20px;"></div>
-		<div>
+	<!-- 	<div>
 			<a href="javascript:;" id="next" class="weui-btn weui-btn_primary" style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);border-radius: 0;
 			position: fixed;bottom: 0;display: block;width: 100%;max-width: 750px;">立即预约</a>
+		</div> -->
+		<div style="position: fixed;bottom: 0;display: flex;justify-content: space-between;align-items: center;width: 100%;background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);max-width: 750px;">
+			<div class="money" style="width: 50%;text-align: center;font-size: 12px;background: #fff;height: 46px;line-height: 2;">
+				总计：<span style="color: #EC1720;"><b style="font-size: 21px;" id="pirce">99</b>/1份</span>
+			</div>
+			<a href="javascript:;" data-target="#half" class="weui-btn weui-btn_primary open-popup" style="border-radius: 0;width: 50%;display: block;background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);" id="next">立即预约</a>
 		</div>
-		
 		<script src="../lib/jquery-2.1.4.js"></script>
 		<script src="../lib/fastclick.js"></script>
 		<script>
@@ -195,12 +196,8 @@
 		<script src="../js/jquery-weui.js"></script>
 
 		<script src="../js/swiper.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
 		<script src="../js/page.js"></script>
-		<script>
-			$(".swiper-container").swiper({
-				loop: true,
-				autoplay: 3000
-			});
-		</script>
 	</body>
 </html>

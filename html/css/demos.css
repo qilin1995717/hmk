@@ -3,8 +3,14 @@ body, html {
 	margin: 0 auto;
   height: 100%;
   -webkit-tap-highlight-color: transparent;
-  font-family:Microsoft YaHei;
+  font-family:Microsoft YaHei !important;
 }
+.weui-tabbar{
+	position: fixed;
+}
+ .weui-dialog__btn{
+				 color: #0695FF;
+			 }
 .demos-title {
   text-align: center;
   font-size: 34px;
@@ -12,7 +18,9 @@ body, html {
   font-weight: 400;
   margin: 0 15%;
 }
-
+.weui-tabbar{
+	max-width: 750px;
+}
 .demos-sub-title {
   text-align: center;
   color: #888;
@@ -76,13 +84,15 @@ footer a {
 	color: #1A1A1A;
 }
 .seach{
-	width: 100%;
+	width: 80%;
 	position: absolute;
 	top: 10px;
 	z-index: 999;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .seach input{
-	width: 80%;
+	width: 100%;
 	background:rgba(255,255,255,.6);
 	height: 31px;
 	border: none;
@@ -131,6 +141,8 @@ footer a {
 }
 #tab1 .list .list4 .listcar p{
 	font-size: 12px;
+	height: 19px;
+	overflow: hidden;
 	color:rgba(153,153,153,1);
 	margin-bottom: 15px;
 }
@@ -176,6 +188,7 @@ footer a {
 	width: 58%;
 }
 .jq .jqboy .jqico{
+	position: relative;
 	display: flex;
 	align-items: center;
 }
@@ -185,6 +198,8 @@ footer a {
 	line-height: 1.1;
 }
 .jq .jqboy p{
+	height: 19px;
+	overflow: hidden;
 	font-size: 11px;
 	color:rgba(128,128,128,1);
 }
@@ -196,7 +211,8 @@ footer a {
 	color:rgba(6,149,255,1);
 }
 .jq .jqboy .jqico h3{
-	margin-left: 28%;
+	position: absolute;
+	right: 0;
 	font-size: 12px;
 	color: #EC1720;
 }
@@ -445,6 +461,7 @@ footer a {
 .pagebt{
 	font-size: 16px;
 	color: #000000;
+	margin-bottom: 15px;
 	padding-left: 15px;
 	position: relative;
 }
@@ -462,28 +479,34 @@ footer a {
 	padding: 0 25px;
 }
 .tbsm ul li {
-	margin-top: 15px;
+	/* margin-top: 15px; */
 	display: flex;
 	justify-content: space-between;
 }
 .tbsm ul li .ic{
-	width:55px;
-	height:15px;
+	display: table;
+	padding: 2px;
+	margin-top: 5px;
 	text-align: center;
 	border:1px solid rgba(255,95,0,1);
 	border-radius:2px;
-	line-height: 15px;
+	line-height: 1;
 	color:rgba(255,95,39,1);
-	font-size: 10px;
+	font-size: 13px;
 }
 .tbsm ul li .nr{
-	width: 75%;
+	width: 80%;
 	color: #1A1A1A;
-	font-size: 10px;
+	font-size: 13px;
+	line-height:2;
+}
+.tbsm ul li .nr p{
+	line-height: 2;
 }
 .yysm .yy{
-	width: 60px;
-	font-size: 10px;
+	width: 70px;
+	line-height: 2;
+	font-size: 13px;
 	color: #808080;
 }
 .yysm .nr .red{
@@ -500,4 +523,53 @@ footer a {
 .jqjs p{
 	color: #59636F;
 	font-size: 13px;
+}
+.login {
+	padding: 40px 25px 75px 25px;
+	background: #FFFFFF;
+}
+.login input{
+	width: 90%;
+	padding: 18px 15px;
+	border-radius: 5px;
+	background: #F0F0F0;
+	font-size: 14px;
+	color: #666666;
+	outline: none;
+	border: none;
+	margin-bottom: 15px;
+}
+.login button{
+	border: none;
+	width: 100%;
+	outline: none;
+	padding: 18px 15px;
+	border-radius: 5px;
+	background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);
+	font-size: 18px;
+	color: #FFFFFF;
+	margin-top: 25px;
+	letter-spacing: 6px;
+}
+.login .go{
+	font-size: 13px;
+	color: #0695FF;
+	position: absolute;
+	right: 10px;
+	top: 18px;
+}
+.wxts ul li{
+	color: #EF5056;
+	font-size: 13px;
+}
+.syxz ul li{
+	color: #1A1A1A;
+	font-size: 11px;
+}
+.weui-count .weui-count__increase {
+	background-color: #2A67FF;
+	border:1px solid #2A67FF;
+}
+.weui-count .weui-count__btn{
+	border:1px solid #2A67FF;
 }
