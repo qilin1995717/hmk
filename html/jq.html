@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<style type="text/css">
+			.seach{
+				top: 10px;
+				    z-index: 999;
+					transform: none;
+					width: 100%;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+
+				<!-- 景区预约 -->
+				<div style="height: 100px;background:linear-gradient(0deg,rgba(37,109,255,1),rgba(6,149,255,1));margin-bottom: 15px;">
+				<div class="seach seachjq">
+					<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;position: relative;">
+						<img id="tab2s" class="s" src="images/icon_1@2x.png">
+						<input id="tab2sea" type="search" placeholder="搜索目的地/景点" />
+					</div>
+				</div>
+				<div class="tap">
+					<h2>全部地区</h2>
+					<h2>全部月份</h2>
+				</div>
+				</div>
+				<div id="homejq" class="boxp15" style="padding-top: 0;padding-bottom: 50px;">
+					<!-- <div class="jq">
+						<div class="img">
+							<img src="images/jq.png" >
+						</div>
+						<div class="jqboy">
+							<h2>嵩山少林寺景区</h2>
+							<div class="jqico">
+								<span>5A</span>
+								<span>名胜古迹</span>
+								<h3><b>75</b>元</h3>
+							</div>
+							<p>河南 · 郑州 距您235km</p>
+							<p>游览日期：2019年9月25日~26日</p>
+						</div>
+					</div>
+					<div class="jq">
+						<div class="img">
+							<img src="images/jq.png" >
+						</div>
+						<div class="jqboy">
+							<h2>嵩山少林寺景区</h2>
+							<div class="jqico">
+								<span>5A</span>
+								<span>名胜古迹</span>
+								<h3><b>75</b>元</h3>
+							</div>
+							<p>河南 · 郑州 距您235km</p>
+							<p>游览日期：2019年9月25日~26日</p>
+						</div>
+					</div>
+					<div class="jq">
+						<div class="img">
+							<img src="images/jq.png" >
+						</div>
+						<div class="jqboy">
+							<h2>嵩山少林寺景区</h2>
+							<div class="jqico">
+								<span>5A</span>
+								<span>名胜古迹</span>
+								<h3><b>75</b>元</h3>
+							</div>
+							<p>河南 · 郑州 距您235km</p>
+							<p>游览日期：2019年9月25日~26日</p>
+						</div>
+					</div>
+					<div class="jq">
+						<div class="img">
+							<img src="images/jq.png" >
+						</div>
+						<div class="jqboy">
+							<h2>嵩山少林寺景区</h2>
+							<div class="jqico">
+								<span>5A</span>
+								<span>名胜古迹</span>
+								<h3><b>75</b>元</h3>
+							</div>
+							<p>河南 · 郑州 距您235km</p>
+							<p>游览日期：2019年9月25日~26日</p>
+						</div>
+					</div> -->
+					
+					<div class="weui-loadmore">
+					  <i class="weui-loading"></i>
+					  <span class="weui-loadmore__tips">正在加载</span>
+					</div>
+				</div>
+				<div id="city" class="tc" style="display: none;">
+					<div class="tcnr">
+						
+					</div>
+				</div>
+				<div id="mouth" class="tc" style="display: none;">
+					<div class="tcnr">
+						
+					</div>
+				</div>
+			<div class="weui-tabbar" style="position: fixed;">
+				<a href="index.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_1@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">首页</p>
+				</a>
+				<a href="jq.html" class="weui-tabbar__item ">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_02@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">景区预约</p>
+				</a>
+				<a href="nk.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_3@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">年卡购买</p>
+				</a>
+				<a href="user.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_4@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">个人中心</p>
+				</a>
+			</div>
+		<script src="../js/weixin.js"></script>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/config.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script type="text/javascript">
+			var historyurl = window.location.href;
+			sessionStorage.setItem('historyurl', historyurl);
+			
+			
+			
+			wx.ready(function(){
+				
+				wx.getLocation({
+				type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+				success: function (res) {
+				latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+				longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+				var speed = res.speed; // 速度，以米/每秒计
+				var accuracy = res.accuracy; // 位置精度
+				
+				$.ajax({
+					url:QURL+'/api/scenic/scenicList',
+					type:'post',
+					async:false,
+					dataType:'json',
+					data:{
+						lat:longitude,
+						lng:latitude,
+					},
+					success:function(data){
+						console.log(data);
+						var homejq=document.querySelector('#homejq');
+						homejq.innerHTML='';
+						var data = data.data.rows;
+						for(i=0; i < data.length ; i++){
+							
+							homejq.innerHTML +="<div class='jq' scenic_sn='"+ data[i].scenic_sn +"'><div class='img'><img src='"+ data[i].picture +"'></div>"
+							+"<div class='jqboy'><h2>"+ data[i].name +"</h2><div class='jqico'><span>"+ data[i].grade +"</span>"+
+							
+							// +"<span>"+ data[i].price +"</span>
+							"<h3><b>"+ data[i].price +"</b>元</h3></div><p>"+data[i].province+ data[i].city+"距您："+ data[i].distance +"km</p><p>游览日期："+ data[i].subscribe_start_time +'~'+ data[i].subscribe_end_time +"</p></div></div>"
+							
+						}
+						
+						//景区
+						$(".jq").click(function(){
+						var scenic_sn = $(this).attr('scenic_sn');
+							
+							window.location.href="page.html?valus="+ JSON.stringify(scenic_sn);
+						})
+						
+						
+					},
+					error:function(e){
+						console.log(e);
+					}
+				})
+				
+				}
+				});
+			  // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			});
+			
+
+			
+			
+			//tabbar
+			$(".tap h2").click(function(){
+				a = $(this).index();
+				var tap = $(this);
+				$(this).addClass("active").siblings().removeClass("active");
+				
+				if(a == 0){
+					$("#city").toggle();
+					$("#mouth").css("display","none");
+			
+				}
+				if(a == 1){
+					$("#mouth").toggle();
+					$("#city").css("display","none");
+					
+				}
+			})
+			//省份
+			for(var i=1; i< 13 ; i++){
+					var y =  i + "省";
+					$("#city .tcnr").append("<span>" + y + "</span>");
+				}
+			// 月份
+			var ny = new Date();
+			var n = ny.getFullYear();
+			var y = ny.getMonth()+1;
+			if(y > 6){
+				for(var i=7; i< 13 ; i++){
+						var y = n + '-' + i ;
+						$("#mouth .tcnr").append("<span>" + y + "</span>");
+					}
+				for(var i=1; i< 7 ; i++){
+						var y = n+1 + '-' + i;
+						$("#mouth .tcnr").append("<span>" + y + "</span>");
+					}
+					
+			}else{
+					for(var i=1; i< 13 ; i++){
+							var y = n + '-' + i;
+							$("#mouth .tcnr").append("<span>" + y + "</span>");
+						}
+			}
+			
+			var loading = false;  //状态标记
+			var pa = 0;
+			$(document.body).infinite().on("infinite", function() {
+			  if(loading) return;
+			  loading = true;
+			  setTimeout(function() {
+				  pa++;
+				  console.log(pa);
+			    // $("#homejq").append("<p> 我是新加载的内容 </p>");
+			    loading = false;
+			  }, 1500);   //模拟延迟
+			});
+			
+			
+			$("#city span").click(function(){
+				console.log(a);
+				$(".tap h2:first").text($(this).text());
+				$(this).removeClass("active");
+				$(".tap h2:first").removeClass("active");
+				var time =$(".tap h2:last").text();
+				console.log(time);
+				var province = $(".tap h2:first").text();
+				console.log(province);
+				$.ajax({
+					url:QURL+'/api/scenic/scenicList',
+					type:'post',
+					async:false,
+					dataType:'json',
+					data:{
+						subscribe_start_time:time,
+						subscribe_end_time:time,
+						// name:name,
+						province:province,
+					},
+					success:function(data){
+						var list=document.querySelector('#tab2jq');
+						list.innerHTML='';
+						var data = data.data.rows;
+						for(i=0; i < data.length ; i++){
+							list.innerHTML +="<div class='jq' scenic_sn='"+ data[i].scenic_sn +"'><div class='img'><img src='"+ data[i].picture +"'></div>"
+							+"<div class='jqboy'><h2>"+ data[i].name +"</h2><div class='jqico'><span>"+ data[i].grade +"</span>"
+							+
+							// "<span>"+ data[i].price +"</span>"
+							"<h3><b>"+ data[i].price +"</b>元</h3></div><p>"+data[i].province+ data[i].city+"距您："+ data[i].distance +"km</p><p>游览日期："+ data[i].subscribe_start_time +'~'+ data[i].subscribe_end_time +"</p></div></div>"
+							
+						}
+					},
+					error:function(e){
+						console.log(e);
+					}
+				})
+			})
+			
+			$("#mouth span").click(function(){
+				console.log(a);
+				$(".tap h2:last").text($(this).text());
+				$(this).removeClass("active");
+				$(".tap h2:last").removeClass("active");
+				var time =$(".tap h2:last").text();
+				console.log(time);
+				var province = $(".tap h2:first").text();
+				console.log(province);
+				$.ajax({
+					url:QURL+'/api/scenic/scenicList',
+					type:'post',
+					async:false,
+					dataType:'json',
+					data:{
+						subscribe_start_time:time,
+						subscribe_end_time:time,
+						// name:name,
+						province:province,
+					},
+					success:function(data){
+						var list=document.querySelector('#tab2jq');
+						list.innerHTML='';
+						var data = data.data.rows;
+						for(i=0; i < data.length ; i++){
+							list.innerHTML +="<div class='jq' scenic_sn='"+ data[i].scenic_sn +"'><div class='img'><img src='"+ data[i].picture +"'></div>"
+							+"<div class='jqboy'><h2>"+ data[i].name +"</h2><div class='jqico'><span>"+ data[i].grade +"</span>"
+							+
+							// "<span>"+ data[i].price +"</span>"
+							"<h3><b>"+ data[i].price +"</b>元</h3></div><p>"+data[i].province+ data[i].city+"距您："+ data[i].distance +"km</p><p>游览日期："+ data[i].subscribe_start_time +'~'+ data[i].subscribe_end_time +"</p></div></div>"
+							
+						}
+					},
+					error:function(e){
+						console.log(e);
+					}
+				})
+			})	
+			$('#tab2s').click(function(){
+				var name = $('#tab2sea').val();
+				if(name == ''){
+					alert('请输入内容');
+				}else{
+					$.ajax({
+						url:QURL+'/api/scenic/scenicList',
+						type:'post',
+						async:false,
+						dataType:'json',
+						data:{
+							// subscribe_start_time:time,
+							// subscribe_end_time:time,
+							name:name,
+							// province:province,
+						},
+						success:function(data){
+							var list=document.querySelector('#tab2jq');
+							list.innerHTML='';
+							var data = data.data.rows;
+							for(i=0; i < data.length ; i++){
+								list.innerHTML +="<div class='jq' scenic_sn='"+ data[i].scenic_sn +"'><div class='img'><img src='"+ data[i].picture +"'></div>"
+								+"<div class='jqboy'><h2>"+ data[i].name +"</h2><div class='jqico'><span>"+ data[i].grade +"</span>"
+								+
+								// "<span>"+ data[i].price +"</span>"
+								"<h3><b>"+ data[i].price +"</b>元</h3></div><p>距您："+ data[i].distance +"km</p><p>游览日期："+ data[i].subscribe_start_time +'~'+ data[i].subscribe_end_time +"</p></div></div>"
+								
+							}
+						},
+						error:function(e){
+							console.log(e);
+						}
+					})
+				}
+				console.log(name);
+			
+			})
+			
+			$(".tc").on("click",function(){
+					$(".tc").css("display","none");
+					$(".tap h2").removeClass("active");
+			})
+			
+			
+			$(".jq").click(function(){
+			var scenic_sn = $(this).attr('scenic_sn');
+				
+				window.location.href="page.html?valus="+ JSON.stringify(scenic_sn);
+			})
+		</script>
+	</body>
+</html>
