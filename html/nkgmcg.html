@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<link rel="stylesheet" href="css/jh.css">
+	</head>
+
+	<body ontouchstart style="padding: 30px 0;">
+		<div class="jhbody">
+			<img src="images/jhcg.png" style="width: 50%;margin-top: 50px;">
+			<div style="display: flex; justify-content: space-between;">
+				<button id="sy" type="button" style="width: 45%;background:rgba(6,149,255,0.1);
+border:1px solid rgba(6,149,255,1);
+border-radius:10px;color: #0695FF;">返回首页</button>
+				<button id="jh" type="button" style="width: 45%;">查看详情</button>
+			</div>
+		</div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/config.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script type="text/javascript">
+			var url=window.location.search;
+			var str = url.substr(1);
+			   strs = str.split("&"); 
+			   var key=new Array(strs.length);
+			   var value=new Array(strs.length);
+			   for(i=0;i<strs.length;i++){
+			    key[i]=strs[i].split("=")[0]
+			    value[i]=unescape(strs[i].split("=")[1]); 
+			  } 
+			  var val =JSON.parse(value);
+			  console.log(val);
+			  var card_sn_ma =val.card_sn_ma;
+			  var reserv_status =val.reserv_status;
+			  var user_token = val.token;
+			  var sn = val.sn;
+			 if(!token){
+			 	window.location.href = 'login.html';
+			 }else{
+			 	$.ajax({
+					url:QURL+'/api/Card/CardTran',
+					type:'post',
+					dataType:'json',
+					data:{
+						token:user_token,
+						user_token:token,
+						card_sn:sn,
+						card_sn_ma:card_sn_ma,
+						reserv_status:reserv_status,
+					},
+					success:function(res){
+						console.log(res);
+						if(res.code == 200 ){
+							$.alert('转移成功');
+						}else{
+							$.alert('转移失败',function(){
+								window.location.href = 'index.html';
+							})
+						}
+					}
+				})
+			 }
+			 $('#sy').click(function(){
+			 	window.location.href = 'index.html';
+			 })
+			 $('#jh').click(function(){
+			 	window.location.href = 'wdnkxq.html?sn=' + sn;
+			 })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<style type="text/css">
+			.seach{
+				top: 10px;
+				    z-index: 999;
+					transform: none;
+					width: 100%;
+			}
+			.seachjq input{
+				width: 74%;
+			}
+			.seachjq button{
+				outline: none;
+				border: none;
+				background: transparent;
+				font-size: 14px;
+				color: #fff;
+			}
+			.tou span{
+				font-size: 13px;
+				color: #808080;
+				padding: 13px 0;
+			}
+			#tjlist,
+			#list{
+				list-style: none;
+			}
+			#tjlist li,
+			#list li {
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				padding: 13px 0;
+				background: #FFFFFF;
+				border-bottom: 1px solid #E6E6E6;
+				
+			}
+			#tjlist li span,
+			#list li span{
+				color: #1A1A1A;
+				font-size: 13px;
+			}
+			#tjlist li span:last-child,
+			#list li span:last-child{
+				color: #0695FF;
+				width:33px;
+				height:20px;
+				line-height: 20px;
+				background:rgba(6,149,255,0.1);
+				border:1px solid rgba(6,149,255,1);
+				border-radius:5px;
+				text-align: center;
+			}
+			#tjlist li .s{
+				background: #E6E6E6 !important;
+				border: #E6E6E6 !important;
+				color: #666 !important;
+				pointer-events: none;
+			}
+			#tjlist{
+				display: none;
+			}
+			#qx{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+
+				<!-- 景区预约 -->
+				<div style="height: 100px;background:linear-gradient(0deg,rgba(37,109,255,1),rgba(6,149,255,1));">
+				<div class="seach seachjq">
+					<div style="overflow: hidden;padding: 0 20px;display: flex;justify-content: space-between;align-items: center;position: relative;">
+						<img id="tab2s" class="s" src="images/icon_1@2x.png">
+						<input id="tab2sea" type="tel" placeholder="输入手机号查找下级代理并绑定" />
+						<button id="ss" type="button">搜索</button>
+						<button id="qx" type="button">取消</button>
+					</div>
+				</div>
+				<div class="tap" style="justify-content: space-around;color: #fff;margin-top: 10px;">
+					二级代理总人数：144/位
+				</div>
+				</div>
+				<div class="tou" style="display: flex;justify-content: space-around;align-items: center;background: #F5F5F5;">
+					<span>手机号</span><span>昵称</span><span>年卡激活数量</span>
+				</div>
+				<ul id="list">
+					<!-- <li>
+						<span>18539993343</span>
+						<span>久就旧</span>
+						<span>2666</span>
+						<span class="gl">管理</span>
+					</li> -->
+				</ul>
+				<ul id="tjlist">
+					<li>
+						<span>18539993343</span>
+						<span>久就旧</span>
+						<span>2666</span>
+						<span class="tj">管理</span>
+					</li>
+				</ul>
+				
+		<script src="../js/weixin.js"></script>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/config.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script type="text/javascript">
+			
+			$.ajax({
+				url:QURL+'/api/Agent/agentlist',
+				type:'post',
+				dataType:'json',
+				data:{
+					token,
+					page:1,
+				},
+				success:function(res){
+					console.log(res);
+					var data = res.data.list.data;
+					var html = '';
+					for(i=0;i<data.length;i++){
+						html +="<li>"+
+						"<span>"+data[i].phone+"</span>"+
+						"<span>"+data[i].nickname+"</span>"+
+						"<span>"+data[i].card_num+"</span>"+
+						"<span class='gl' data="+data[i].phone+">绑卡</span>"+
+					"</li>"
+					}
+					$('#list').html(html);
+					$('.gl').click(function(){
+						var phone = $(this).attr('data');
+						window.location.href = 'bk.html?phone='+phone;
+					})
+				}
+			})
+			
+			$('#ss').click(function(){
+				$(this).css('display','none');
+				$('#qx').css('display','block');
+				$('#list').css('display','none');
+				$('#tjlist').css('display','block');
+				var tel = $('#tab2sea').val();
+				console.log(tel);
+				if(!tel || !/1[3|4|5|7|8]\d{9}/.test(tel)){
+					$.toptip('请输入手机号');
+				}else{
+					$.ajax({
+						url:QURL+'/api/Agent/agent_add',
+						dataType:'json',
+						type:'post',
+						data:{
+							token,
+							tel,
+						},
+						success:function(res){
+							console.log(res);
+							var data = res.data.list;
+							console.log(data);
+							if(!data){
+								$('#tjlist').html('');
+							}else{
+											lhtml ="<li>"+
+									"<span>"+data.phone+"</span>"+
+									"<span>"+data.nickname+"</span>"+
+									"<span class='sf' data="+data.is_fit+"></span>"+
+									"<span data-phone="+data.phone+" data="+data.is_fit+" class='tj'>管理</span>"+
+								"</li>"
+										$('#tjlist').html(lhtml);
+										$('.sf').each(function(){
+											var zt = $(this).attr('data');
+											console.log(zt);
+											if(zt == 1){
+												$(this).text('符合');
+											}
+											if(zt == 2){
+												$(this).text('不符合');
+											}
+											
+										});
+										$('.tj').each(function(){
+											var zt = $(this).attr('data');
+											var phone = $(this).attr('data-phone');
+											console.log(phone);
+											console.log(zt);
+											if(zt == 2 ){
+												$(this).addClass('s');
+											}else{
+												$(this).click(function(){
+													$.confirm({
+													  title: '提示',
+													  text: '绑定对方为下级代理需对方同意，点击确认给对方发送验证码。',
+													  onOK: function () {
+													    //点击确认
+														$.ajax({
+															url:QURL+'/api/Agent/getCode',
+															type:'post',
+															dataType:'json',
+															data:{
+																phone:phone,
+																event:'agent',
+															},
+															success:function(res){
+																console.log(res);
+																if(res.code == 200){
+																	$.prompt({
+																	  title: '提示',
+																	  text: '请输入对方获得的验证码完成绑定！',
+																	  input: '',
+																	  empty: false, // 是否允许为空
+																	  onOK: function (input) {
+																	    //点击确认
+																		var code = $('#weui-prompt-input').val();
+																		console.log(code);
+																		$.ajax({
+																			url:QURL+'/api/Agent/agent_runadd',
+																			type:'post',
+																			dataType:'json',
+																			data:{
+																				token:token,
+																				captcha:code,
+																				phone:phone,
+																			},
+																			success:function(res){
+																				console.log(res);
+																			}
+																		})
+																		
+																	  },
+																	  onCancel: function () {
+																	    //点击取消
+																	  }
+																	});
+																}
+																
+															}
+														})
+														
+														
+														
+													  },
+													  onCancel: function () {
+													  }
+													});
+													
+													
+												})
+											}
+										});
+							}
+							
+					
+						}
+					})
+				}
+			})
+			$('#qx').click(function(){
+				$(this).css('display','none');
+				$('#ss').css('display','block');
+				$('#list').css('display','block');
+				$('#tjlist').css('display','none');
+			})
+			
+			
+		
+		</script>
+	</body>
+</html>

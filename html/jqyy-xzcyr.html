@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+
+
+		<style>
+			.cyr{
+				list-style: none;
+				padding-top: 0;
+			}
+			.cyr li{
+				position: relative;
+				padding-bottom: 12px;
+				border-bottom: 1px solid #eee;
+			}
+			.cyr li p:first-child{
+				font-size: 14px
+			}
+			.cyr li p{
+				font-size: 12px;
+				color: #1A1A1A;
+				margin-top: 12px;
+			}
+			.cyr li .span{
+				position: absolute;
+				top: -2%;
+				right: -20px;
+			}
+			.weui-cells:before,
+			.weui-cells:after{
+				display: none;
+			}
+			
+		</style>
+	</head>
+
+	<body ontouchstart>
+		<ul class="boxp15 cyr">
+			<li>
+				暂无可预约出游人
+			</li>
+		</ul>
+
+		<div style="height: 20px;"></div>
+		<div>
+			<a href="javascript:;" id="next" class="weui-btn weui-btn_primary" style="background:linear-gradient(0deg,rgba(42,103,255,1) 0%,rgba(6,149,255,1) 100%);border-radius: 0;
+			position: fixed;bottom: 0;display: block;width: 100%;max-width: 750px;">完成</a>
+		</div>
+		
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/config.js"></script>
+		<script src="../js/swiper.js"></script>
+		<script>
+			var url=window.location.search;
+			var str = url.substr(1);
+			   strs = str.split("&"); 
+			   var key=new Array(strs.length);
+			   var next=new Array(strs.length);
+			   for(i=0;i<strs.length;i++){
+			    key[i]=strs[i].split("=")[0]
+			    next[i]=unescape(strs[i].split("=")[1]); 
+			  } 
+			  var next =JSON.parse(next);
+			console.log(next);
+			
+			
+			console.log(token);
+			$.ajax({
+				url:QURL+'/api/Scenic/ScenicCardList',
+				type:'post',
+				dataType:'json',
+				data:{
+					scenic_sn:next.sn,
+					token:token,
+					subscribe_time:next.sj,
+				},
+				success:function(res){
+					console.log(res);
+					var data = res.data.rows;
+					var html = '';
+					for(i=0; i<data.length; i++){
+						html +=
+						"<li>" +
+							"<p>" + data[i].uname +"</p>" +
+							"<p>手机号：" + data[i].tel + "</p>"+
+							"<p>身份证：" + data[i].identity + "</p>"+
+							"<div class='weui-cells weui-cells_checkbox span'>"+
+											  "<label class='weui-cell weui-check__label'>"+
+											    "<div class='weui-cell__hd'>"+
+											      "<input type='checkbox' name='interest' identity='"+data[i].identity+"' tel='"+data[i].tel+"'  uname='"+data[i].uname+"' class='weui-check' id='"+data[i].sn+"'>"+
+											      "<i class='weui-icon-checked'></i>"+
+											    "</div></label></div>"+
+						"</li>"
+					}
+					$('.cyr').html(html);
+					
+					
+					
+					
+					
+					
+					
+						
+					
+					
+				},
+				error:function(e){
+					console.log(e)
+				}
+			})
+			
+			
+			
+			
+			
+			$('#next').click(function(){
+							var uname = [];
+							var tel =[];
+							var identity = [];
+							var cardsn =[];//定义一个数组    
+				            $('input[name="interest"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数    
+				            cardsn.push($(this).attr('id'));//将选中的值添加到数组chk_value中    
+							identity.push($(this).attr('identity'));
+							tel.push($(this).attr('tel'));
+							uname.push($(this).attr('uname'));
+				            });
+							
+							console.log(cardsn);
+							console.log(uname);
+							console.log(tel);
+							console.log(identity);
+							
+							var xx = {
+								uname:uname,
+								tel:tel,
+								identity:identity,
+								cardsn:cardsn,
+							}
+							sessionStorage.setItem('xx', JSON.stringify(xx));
+				
+				window.location.href = 'jqyy.html?valus=' + next.sn;
+			})
+		</script>
+	</body>
+</html>

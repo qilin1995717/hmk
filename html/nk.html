@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+
+	</head>
+
+	<body ontouchstart>
+					<div class="boxp15">
+						<a href="nkjh.html" >
+							<img src="images/ka.png" style="width: 100%;">
+						</a>
+						<div id="nkliebiao">
+						<!-- <div class="yearcard">
+							<div class="top">
+								<img src="images/cdj.png" >
+								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
+							</div>
+							<div class="bot">
+								<div class="botr">
+									<p><span>￥99 /1年</span>原价:￥990</p>
+									<p>结束时间：2019-12-31</p>
+								</div>
+								<button type="button">
+									立即购买
+								</button>
+							</div>
+						</div>
+						<div class="yearcard">
+							<div class="top">
+								<img src="images/cdj.png" >
+								<h2>潮带劲旅游卡：全家一起潮出游！</h2>
+							</div>
+							<div class="bot">
+								<div class="botr">
+									<p><span>￥99 /1年</span>原价:￥990</p>
+									<p>结束时间：2019-12-31</p>
+								</div>
+								<button type="button">
+									立即购买
+								</button>
+							</div>
+						</div> -->
+						</div>
+					</div>
+					
+					
+					<div style="height: 80px;"></div>
+			<div class="weui-tabbar" style="position: fixed;">
+				<a href="index.html" class="weui-tabbar__item weui-bar__item--on">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_1@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">首页</p>
+				</a>
+				<a href="jq.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_2@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">景区预约</p>
+				</a>
+				<a href="nk.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_03@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">年卡购买</p>
+				</a>
+				<a href="user.html" class="weui-tabbar__item">
+					<div class="weui-tabbar__icon">
+						<img src="./images/menu_4@2x.png" alt="">
+					</div>
+					<p class="weui-tabbar__label">个人中心</p>
+				</a>
+			</div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/config.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script type="text/javascript">
+			console.log(token);
+			var historyurl = window.location.href;
+			sessionStorage.setItem('historyurl', historyurl);
+			if(token){
+					
+					$.ajax({
+						url:QURL+'/api/Card/CardList',
+						type:'post',
+						dataType:'json',
+						data:{
+							size:5,
+							page:1,
+						},
+						success:function(data){
+							console.log(data);
+							var card = data.data.list.data;
+							var html = '';
+							for(i=0;i<card.length;i++){
+								html +="<div data-sn="+card[i].goods_sn+" class='yearcard'>"+
+								"<div class='top'>"+
+									"<img src="+card[i].goods_img+">"+
+									"<h2>"+card[i].goods_name+"</h2>"+
+								"</div>"+
+								"<div class='bot'>"+
+									"<div class='botr'>"+
+										"<p><span>￥"+card[i].goods_price+"/1年</span>原价:￥"+card[i].goods_old_price+"</p>"+
+										"<p>结束时间："+card[i].goods_end_time +"</p>"+
+									"</div><button type='button'>立即购买</button></div></div>"
+							}
+							$('#nkliebiao').html(html);
+							
+							$('.yearcard').click(function(){
+								var sn = $(this).attr('data-sn');
+								console.log(sn);
+								window.location.href = '../html/nkxq.html?sn='+sn;
+							})
+						},
+					})
+					
+					
+				
+				}else{
+					window.location.href = '../html/loogin.html';
+				}
+		</script>
+	</body>
+</html>

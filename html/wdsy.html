@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>潮带劲</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+		<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.css">
+		<link rel="stylesheet" href="css/demos.css">
+		<style type="text/css">
+			.seach{
+				top: 10px;
+				    z-index: 999;
+					transform: none;
+					width: 100%;
+			}
+			.seachjq input{
+				width: 90%;
+			}
+			.seachjq button{
+				outline: none;
+				border: none;
+				background: transparent;
+				font-size: 14px;
+				color: #fff;
+			}
+			.tou span{
+				font-size: 13px;
+				color: #808080;
+				padding: 13px 0;
+			}
+			#list{
+				list-style: none;
+			}
+			#list li {
+				display: flex;
+				align-items: center;
+				padding: 13px;
+				background: #FFFFFF;
+				border-bottom: 1px solid #E6E6E6;
+				
+			}
+			.tou span{
+				width: 25%;
+				display: block;
+				text-align: center;
+			}
+			#list li span{
+				color: #1A1A1A;
+				font-size: 13px;
+				width: 25%;
+				overflow: hidden;
+				display: block;
+				text-align: center;
+			}
+			#list li:nth-child(even){
+				background: rgba(6,149,255,.1);
+			}
+			#list li span:last-child{
+				color: #0695FF;
+				width:33px;
+				height:20px;
+				line-height: 20px;
+				border-radius:5px;
+				text-align: center;
+				font-size: 10px;
+				margin: 0 auto;
+			}
+			#list li .yt{
+				background:rgba(6,149,255,0.1);
+			}
+			#list li .wt{
+				background: #eee;
+				color: #666 !important;
+			}
+		</style>
+	</head>
+
+	<body ontouchstart>
+
+				<!-- 景区预约 -->
+				<div style="height: 100px;background:linear-gradient(0deg,rgba(37,109,255,1),rgba(6,149,255,1));">
+				
+				</div>
+				<div style="width: 90%;margin: 0 auto;text-align: center;border-radius: 15px;box-shadow: 0 0 20px #E6E6E6;margin-top: -66px;margin-bottom:20px;background: #FFFFFF;">
+					<div style="padding: 15px;border-bottom: 1px solid #E6E6E6;">
+						<h2 style="color: #333;">144.00</h2>
+						<p style="color: #999;">总收益(元)</p>
+					</div>
+					<div style="padding: 10px;color: rgba(37,109,255,.5);" id="tx">
+						立即体现
+					</div>
+				</div>
+				<div class="tou" style="display: flex;align-items: center;background: #F5F5F5;">
+					<span>日期</span><span>昵称</span><span>金额</span><span>操作</span>
+				</div>
+				<ul id="list">
+					<!-- <li>
+						<span>18539993343</span>
+						<span>久就旧</span>
+						<span>1.02</span>
+						<span class="wt">已提现</span>
+					</li>
+					<li>
+						<span>18539993343</span>
+						<span>久就旧</span>
+						<span>0.66</span>
+						<span class="yt">未提现</span>
+					</li> -->
+					
+				</ul>
+				
+				<div class="weui-loadmore">
+				  <i class="weui-loading"></i>
+				  <span class="weui-loadmore__tips">正在加载</span>
+				</div>
+		<script src="../js/weixin.js"></script>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script>
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/config.js"></script>
+		<script src="../js/weixin.js"></script>
+		<script src="../js/wx.js"></script>
+		<script type="text/javascript">
+			
+			$.ajax({
+				url:QURL+'/api/Earning/earnlist',
+				type:'post',
+				dataType:'json',
+				data:{
+					token,
+					page:1,
+				},
+				success:function(res){
+					console.log(res);
+					var data = res.data.list.data;
+					var html ='';
+					for(i=0;i<data.length;i++){
+						html +="<li>"+
+								"<span>"+data[i].createtime+"</span>"+
+								"<span>"+data[i].nickname+"</span>"+
+								"<span>"+data[i].money+"</span>"+
+								"<span class='tx' data="+data[i].status+"></span>"+
+							"</li>"
+					}
+					$('#list').html(html);
+					 $(".tx").each(function(){
+						 var zt = $(this).attr('data');
+						 if(zt == 0){
+							 $(this).text('未体现');
+							 $(this).addClass('wt');
+						 }else{
+							 $(this).text('已体现');
+							 $(this).addClass('yt');
+						 }
+					  });
+					
+				}
+			})
+			
+			
+			// var loading = false;  //状态标记
+			// var pa = 1;
+			// $(document.body).infinite().on("infinite", function() {
+			//   if(loading) return;
+			//   loading = true;
+			//   setTimeout(function() {
+			// 	  pa++;
+			// 	  console.log(pa);
+			// 	 //  $.ajax({
+			// 	 //  	url:'http://user.yangergou.com/api/Earning/earnlist',
+			// 	 //  	type:'post',
+			// 	 //  	dataType:'json',
+			// 	 //  	data:{
+			// 	 //  		token,
+			// 	 //  		page:pa,
+			// 	 //  	},
+			// 		// success:function(res){
+			// 		// 	console.log(res);
+			// 		// }
+			// 	 //  })
+			//     // $("#homejq").append("<p> 我是新加载的内容 </p>");
+			//     loading = false;
+			//   }, 1500);   //模拟延迟
+			// });
+			
+			
+		
+			
+		</script>
+	</body>
+</html>
